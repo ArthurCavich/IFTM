@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Cadastro</title>
+</head>
+
+<body>
+    <h1>Cadastro de Clientes</h1>
+    <p style="color: red;">Todos os campos são de preenchimento obrigatório!</p>
+    <form>
+
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+
+            <label for="txtName">Nome:</label>
+            <input id="txtName" name="nome" type="text" maxlength="20" required>
+
+            <br><br>
+
+            <label for="txtBirth">Data de Nascimento:</label>
+            <input id="txtBirth" name="data_nascimento" type="date" required>
+
+            <br><br>
+
+            <label for="txtGender">Sexo:</label>
+            <select id="txtGender" name="sexo" required>
+                <option value="">Selecione...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Informações de Contato</legend>
+
+            <label for="txtEmail">E-mail:</label>
+            <input id="txtEmail" name="email" type="email" maxlength="30" required>
+
+            <br><br>
+
+            <label for="txtNumber">Telefone:</label>
+            <input id="txtNumber" name="telefone" type="tel" maxlength="9" required>
+
+            <br><br>
+
+            <label for="txtWebsite">Website Pessoal:</label>
+            <input id="txtWebsite" name="website" type="url" required>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Localização</legend>
+
+            <label for="txtAdress">Endereço:</label>
+            <input id="txtAdress" name="endereco" type="text" required>
+
+            <br><br>
+
+            <label for="txtNumber1">Número:</label>
+            <input id="txtNumber1" name="numero" type="number" min="1" max="9999" required>
+
+            <br><br>
+
+            <label for="txtCity">Cidade:</label>
+            <input id="txtCity" name="cidade" type="text" required>
+
+            <br><br>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="">Selecione...</option>
+                <option value="AC">Acre (AC)</option>
+                <option value="AL">Alagoas (AL)</option>
+                <option value="AP">Amapá (AP)</option>
+                <option value="AM">Amazonas (AM)</option>
+                <option value="BA">Bahia (BA)</option>
+                <option value="CE">Ceará (CE)</option>
+                <option value="DF">Distrito Federal (DF)</option>
+                <option value="ES">Espírito Santo (ES)</option>
+                <option value="GO">Goiás (GO)</option>
+                <option value="MA">Maranhão (MA)</option>
+                <option value="MT">Mato Grosso (MT)</option>
+                <option value="MS">Mato Grosso do Sul (MS)</option>
+                <option value="MG">Minas Gerais (MG)</option>
+                <option value="PA">Pará (PA)</option>
+                <option value="PB">Paraíba (PB)</option>
+                <option value="PR">Paraná (PR)</option>
+                <option value="PE">Pernambuco (PE)</option>
+                <option value="PI">Piauí (PI)</option>
+                <option value="RJ">Rio de Janeiro (RJ)</option>
+                <option value="RN">Rio Grande do Norte (RN)</option>
+                <option value="RS">Rio Grande do Sul (RS)</option>
+                <option value="RO">Rondônia (RO)</option>
+                <option value="RR">Roraima (RR)</option>
+                <option value="SC">Santa Catarina (SC)</option>
+                <option value="SP">São Paulo (SP)</option>
+                <option value="SE">Sergipe (SE)</option>
+                <option value="TO">Tocantins (TO)</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Cadastrar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</body>
+
+</html>
