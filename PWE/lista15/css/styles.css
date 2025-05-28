@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+header h1 {
+    background-color: black;
+    text-align: right;
+    color: white;
+    padding: 15px;
+    font-family: "Oswald", sans-serif, "Inter", sans-serif;
+    font-size: 35px;
+}
+
+header p {
+    background-color: grey;
+    color: white;
+    text-align: right;
+    padding: 25px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+    background-color: rgb(123, 123, 250);
+}
+
+header nav ul li {
+    display: inline-block;
+
+}
+
+header nav a:link, header nav a:visited{
+    display: inline-block;
+    padding: 45px 20px 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-image: url('../img/logos_gray_transparent_70x70.png');
+    background-repeat: no-repeat;
+    background-position: center -10px;
+}
+
+header nav a:hover{
+    color: yellow;
+    background-image: url('../img/logos_resized_70x70.png');
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    background-color: black;
+}
+section {
+    width: 1200px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+}
+
+section p {
+    line-height: 1.5em;
+    margin: 25px 0px;
+}
+
+section ul {
+    margin-left: 50px;
+}
+
+section img {
+    display: block;
+    width: 500px;
+    margin: 40px auto;
+}
+main h2 {
+    color: black;
+    transition: all 0.5s;
+    margin-bottom: 30px;
+}
+
+main h2:hover {
+    letter-spacing: 5px;
+}
+
+main p {
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+main ul li {
+    line-height: 1.5em;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 10px;
+    display: inline-block;
+}
+
+
+main nav ul li a:hover {
+    color: crimson;
+}
+
+a:link,
+a:visited {
+    color: blue;
+}
+
+footer {
+    background-color: gray;
+    text-align: center;
+    padding: 30px;
+}
+
+footer p {
+    color: white;
+}
+
+footer a:link,
+footer a:visited {
+    color: lightblue !important;
+}
