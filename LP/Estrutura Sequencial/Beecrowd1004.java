@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
  
 
-public class Main {
+public class Beecrowd1004 {
  
     public static void main(String[] args) throws IOException {
         
