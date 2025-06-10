@@ -1,0 +1,42 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.M1, main{
+    background-color: white;
+    width: 1200px;
+    margin: auto;
+}
+
+.M1 > h3{
+    color: rgba(213, 71, 17);
+    text-align: center;
+    padding: 10px;
+}
+
+.M1 > h2{
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+.M1 > p{
+    color: black;
+    text-align: justify;
+    padding: 10px;
+}
+
+.M1, section{
+    margin: auto;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
