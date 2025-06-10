@@ -5,9 +5,51 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
+body{
+    background-color: black;
+}
+
+.celulares {
+    width: 1200px;
+    background-color: white;
+    margin: auto;
+}
+
+.celulares > h2{
     background-color: rgb(17, 19, 143);
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 25px;
+    padding: 15px 0px;
+}
+
+.celulares > div{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.celulares > div > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.celulares h3 {
+    color: rgb(235, 95, 8);
+    padding-bottom: 10px;
+}
+
+.celulares img{
+    padding: 10px;
+}
+
+.celulares > div > div > div > p:nth-of-type(1) {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.celulares > div > div > div > p:nth-of-type(2) {
+    text-align: justify;
 }
