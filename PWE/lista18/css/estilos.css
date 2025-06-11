@@ -9,18 +9,14 @@ body {
     background-color: white;
     width: 1200px;
     margin: 0 auto;
-    min-height: 100vh;
 }
 
-.M1 {
+header {
     display: flex;
-    padding: 5px;
-    margin: 0 auto;
-    flex-direction: column;
-}
-
-.M1 img {
-    margin: 0 auto;
+    margin: auto;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
 }
 
 .M1 h3{
