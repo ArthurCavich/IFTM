@@ -5,33 +5,147 @@
     box-sizing: border-box;
 }
 
-.M1, main{
+body {
     background-color: white;
+    /* Remova o width e margin */
+}
+
+.container {
     width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
 
-.M1 > h3{
-    color: rgba(213, 71, 17);
+.M1 h3{
+    color: rgb(130, 0, 0);
     text-align: center;
-    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
-.M1 > h2{
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 2.5px solid rgb(130, 0, 0);
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.M1 h2{
     font-weight: bold;
     color: black;
     text-align: center;
     padding: 10px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
 }
 
-.M1 > p{
+.M1 p{
+    display: flex;
+    flex-direction: row;
     color: black;
-    text-align: justify;
+    text-align: center;
     padding: 10px;
+    margin: 0 auto;
+    width: 800px;
+    font-size: 16px;
+    line-height: 1.25;
 }
 
-.M1, section{
-    margin: auto;
+.M1 button{
+    background-color: rgb(130, 0, 0);
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto 50px auto;
+    border: none;
+    display: block;
+}
+
+.M1 button:hover{
+    background-color: rgb(183, 77, 6);
+}
+
+.M2 {
+    background-color: lightgray;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.M2 > h3{
+    color: rgb(130, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.M2 img{
+    display: block;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.M2 > div > div > h3 {
+
+    color: black;
+    padding: 30px;
+    margin-top: -60px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.M2 p {
+    text-align: justify;
+    padding: 25px;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    width: 1200px;
+    margin: 0 auto;
+
+}
+
+.M3 h3{
+    color: rgb(130, 0, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.M3 > div {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.M3 > div > div {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.M3 p {
+    text-align: justify;
+    padding: 25px;
+    margin: 0 auto;
 }
 
 footer{
