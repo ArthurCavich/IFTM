@@ -8,6 +8,7 @@
 body {
     background-color: white;
     width: 1200px auto;
+    margin: auto;
 }
 
 .M1 {
@@ -16,18 +17,17 @@ body {
     margin: 0;
     flex-direction: column;
     align-items: center;  
-    justify-content: center;  
-    box-sizing: border-box;
+    justify-content: center;
 }
 
 .M1 h3{
     color: rgb(130, 0, 0);
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 30px;
 }
 
-.container {
+.container{
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -82,6 +82,7 @@ body {
 
 .M2 {
     background-color: lightgray;
+    
 }
 
 .M2 > h3{
