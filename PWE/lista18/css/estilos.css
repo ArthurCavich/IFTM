@@ -7,12 +7,15 @@
 
 body {
     background-color: white;
-    /* Remova o width e margin */
+    width: 1200px auto;
 }
 
-.container {
-    width: 1200px;
+.M1 {
+    display: flex;
+    padding: 5px;
     margin: 0 auto;
+    flex-direction: column;
+    align-items: center;    
 }
 
 .M1 h3{
@@ -25,7 +28,7 @@ body {
 .container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
     flex-direction: row;
     justify-content: center;
     border-bottom: 2.5px solid rgb(130, 0, 0);
@@ -77,25 +80,19 @@ body {
 
 .M2 {
     background-color: lightgray;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
 }
 
 .M2 > h3{
     color: rgb(130, 0, 0);
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 .M2 img{
     display: block;
     margin: 0 auto;
-    padding: 50px;
+    padding-top: 15px;
+    padding-bottom: 50px;
 }
 
 .M2 > div > div > h3 {
@@ -118,16 +115,20 @@ body {
     padding: 30px;
     width: 1200px;
     margin: 0 auto;
-
 }
 
 .M3 h3{
     color: rgb(130, 0, 0);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 70px;
 }
 
-.M3 > div {
+.M3 p {
+    text-align: justify;
+    padding: 25px;
+}
+
+.container3{
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -135,17 +136,15 @@ body {
     width: 1200px;
 }
 
-.M3 > div > div {
+.container3 div {
     display: flex;
     flex-direction: row;
     padding: 20px;
-    margin: 0 auto;
 }
 
-.M3 p {
-    text-align: justify;
-    padding: 25px;
-    margin: 0 auto;
+.container3 div img {
+    width: 400px;
+    height: 200px;
 }
 
 footer{
