@@ -15,7 +15,8 @@ body {
     padding: 5px;
     margin: 0 auto;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;  
+    justify-content: center;  
 }
 
 .M1 h3{
