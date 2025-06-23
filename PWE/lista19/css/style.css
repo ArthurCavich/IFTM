@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7em;
+}
+
+body{
+    background-color: rgb(34, 34, 34);
+}
+
+.layout{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: auto;
+}
+
+.layout h1 {
+    font-size: 30px;
+}
+
+.layout div {
+    background-image: url('../img/logoManutencao.png');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 80px;
+}
+
+.container{
+    width: 1200px;
+    margin: auto;
+}
+
+header nav {
+    background-color: darkblue;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a:link, header nav ul li a:visited{
+    color: white;
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+header nav ul li a:hover{
+    border-top: 2px solid red;
+    border-bottom: 2px solid yellow;
+}
+
+.section {
+    background-color: white;
+    display: flex;
+    padding: 10px;
+}
+
+.sectionManutencao div img {
+    width: 600px;
+    margin: 20px;
+}
+
+.sectionManutencao div h2, .sectionManutencao div p{
+    text-align: justify;
+    margin: 20px;
+}
+
+.sectionManutencao div h2{
+    color: red;
+}
+
+.sectionProdutos {
+    text-align: center;
+}
+
+.sectionProdutos div{
+    margin: 20px;
+    width: 25%;
+}
+
+.sectionProdutos h2{
+    color: blue;
+}
+
+.sectionProdutos p{
+    text-align: center;
+    justify-content: center;
+    text-align: justify;
+
+}
+
+.sectionProdutos {
+    margin-top: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.sectionRodape {
+    display: flex;
+    background-color: rgb(200, 200, 200);
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.sectionRodape div {
+    width: 50%;
+    padding-left: 50px;
+}
+
+.sectionRodape ul {
+    margin-left: 40px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
