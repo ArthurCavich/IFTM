@@ -1,3 +1,4 @@
+package LP.Vetores;
 import java.util.Scanner;
 public class Beecrowd1170 {
     public static void main(String[] args) throws Exception {
