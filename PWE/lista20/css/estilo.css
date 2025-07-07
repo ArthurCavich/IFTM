@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navegação - mobile first */
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+header nav a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 12px;
+    color: rgb(39, 39, 39);
+    transition: all 0.3s ease;
+}
+header nav a:hover {
+    background-color: rgb(39, 39, 39);
+    color: white;
+}
+
+/* Seções gerais */
+main h1{
+    font-size: 30px;
+}
+
+section {
+    padding: 30px 20px;
+}
+section img {
+    max-width: 100%;
+    height: auto;
+}
+section p {
+    line-height: 1.6;
+    margin: 20px 0;
+}
+button {
+    background-color: rgb(70, 70, 234);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+button:hover {
+    background-color: rgb(0, 0, 131);
+}
+
+.fundoEscuro {
+    background-color: rgb(39, 39, 39);
+    color: white;
+    text-align: center;
+}
+
+.fundoClaro {
+    background-color: white;
+    color: black;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.grid > div > h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Estilização específica */
+.pacotes h2,
+.servicos h2 {
+    font-size: 24px;
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comunidade h2{
+    color: gold;
+}
+
+.comunidade h3{
+    font-size: 14px;
+    padding: 10px;
+}
+
+.pacotes p,
+.servicos p,
+.comunidade p {
+    text-align: justify;
+}
+
+
+footer {
+    background-color: black;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+/* Responsividade para telas maiores */
+@media screen and (min-width: 768px) {
+    header nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    header nav a {
+        padding: 15px 25px;
+    }
+    .grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .grid > div {
+        flex: 1;
+        padding: 0 15px;
+    }
+
+    .comunidade > div > div {
+    text-align: left;
+    margin-left: 100px;
+    }
+
+    section {
+        padding: 50px;
+    }
+}
