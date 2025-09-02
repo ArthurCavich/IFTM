@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <style>
+        h1{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        var r = parseInt(prompt("Informe o valor R [0,255]"));
+        var g = parseInt(prompt("Informe o valor G [0,255]"));
+        var b = parseInt(prompt("Informe o valor B [0,255]"));
+
+        var texto = 'JavaScript Básico';
+        var cor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        if (r + g + b <= 400) {
+            document.body.style.backgroundColor = "white";
+            } else {
+                document.body.style.backgroundColor = "black";
+                }
+        document.write('<h1 style="color: ' + cor + '"> ' + texto + '</h1>');
+    </script>
+</body>
+</html>

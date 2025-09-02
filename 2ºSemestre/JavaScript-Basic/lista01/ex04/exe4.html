@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <script>
+    var n1 = parseFloat(prompt("Informe a nota do 1º bimestre (0 a 100):"));
+      if (n1 < 0 || n1 > 100) {
+        alert("Entrada inválida para a 1ª nota.");
+      } else {
+        var n2 = parseFloat(prompt("Informe a nota do 2º bimestre (0 a 100):"));
+          if (n1 < 0 || n1 > 100) {
+          alert("Entrada inválida para a 2ª nota.");
+        } else {
+          var soma = n1 + n2;
+          var minimo = 60;
+          if (soma >= minimo) {
+            alert("Total: " + soma + " pontos. Aluno APROVADO.");
+          } else {
+            var faltam = (minimo - soma);
+            alert("Total: " + soma + " pontos. Aluno REPROVADO, faltam " + faltam + " ponto(s).");
+          }
+        }
+      }
+    </script>
+</body>
+</html>
