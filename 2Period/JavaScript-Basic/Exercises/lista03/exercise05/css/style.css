@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    padding: 20px;
+    margin: auto;
+    width: 400px;
+    text-align: center;
+}
+
+label, input{
+    margin: 2px;
+}

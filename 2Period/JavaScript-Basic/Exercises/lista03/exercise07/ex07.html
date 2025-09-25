@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso ao Sistema</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div>
+        <form>
+            <div class="card">
+                <table>
+                    <tr>
+                        <td colspan="2" style="text-align:center;">
+                            <h1>Acesso ao Sistema</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="texto">Login</td>
+                        <td><input type="text" id="login"></td>
+                    </tr>
+                    <tr>
+                        <td class="texto">Senha</td>
+                        <td>
+                            <input type="password" id="senha" maxlength="8">
+                            <span class="aviso">(max. 8 caracteres)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="texto">Confirmar Senha</td>
+                        <td>
+                            <input type="password" id="confirmar" maxlength="8">
+                            <span class="aviso">(max. 8 caracteres)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="botoes" colspan="2">
+                            <button type="button" id="btnEntrar">Entrar</button>
+                            <button type="reset" id="btnLimpar">Limpar</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

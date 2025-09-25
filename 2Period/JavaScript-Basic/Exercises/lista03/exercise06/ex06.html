@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <table class="calc-table" style="margin:auto;">
+                <tr>
+                    <td colspan="2" style="text-align:center;"><h3>Calculadora</h3></td>
+                </tr>
+                <tr>
+                    <td><label for="valor1">1º Valor:</label></td>
+                    <td><input type="number" id="valor1"></td>
+                </tr>
+                <tr>
+                    <td><label for="valor2">2º Valor:</label></td>
+                    <td><input type="number" id="valor2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <div class="botoes">
+                            <input type="button" value="+" id="soma">
+                            <input type="button" value="-" id="subtrai">
+                            <input type="button" value="*" id="produto">
+                            <input type="button" value="/" id="divide">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="resultado">Resultado:</label></td>
+                    <td><input type="number" id="resultado" readonly></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

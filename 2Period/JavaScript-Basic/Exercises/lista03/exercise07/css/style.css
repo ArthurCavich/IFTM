@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  color: blue;
+  font-family: Verdana;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 500px;
+  margin: 24px auto;
+}
+
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.texto {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.aviso {
+  font-size: 10px;
+  color: red;
+  margin-left: 5px;
+}
+
+.botoes {
+  text-align: center;
+  padding-top: 10px;
+}
+
+button {
+  padding: 5px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
