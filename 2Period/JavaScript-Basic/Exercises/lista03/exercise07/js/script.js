@@ -8,22 +8,22 @@ btnEntrar.addEventListener("click", validarDados);
 btnLimpar.addEventListener("click", limpar);
 
 
-function validarDados(){
+function validarDados() {
 
     login = usuario.value;
     password = senha.value;
     confirma = confirma.value;
 
-     if (login.trim() == "")
+    if (login.trim() == "" && password.trim() == "" && confirma.trim() == "") 
         alert("Os campos estão vazios!\nDigite login e senha!");
-
-    else if(password != confirma)
+    
+    else if (password != confirma) 
         alert("As senhas não são iguais. Digite novamente!");
-
-    else
+    
+    else 
         alert("Todos os campos foram digitados corretamente!");
-
-	limpar();
+    
+    limpar();
 }
 
 function limpar() {

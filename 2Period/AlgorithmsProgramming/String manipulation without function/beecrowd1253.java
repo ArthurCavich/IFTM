@@ -4,9 +4,9 @@ public class beecrowd1253 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int N = Integer.parseInt(sc.nextLine()); // número de casos
+        int n = Integer.parseInt(sc.nextLine()); // número de casos
 
-        for (int t = 0; t < N; t++) {
+        for (int t = 0; t < n; t++) {
             String cifrada = sc.nextLine();
             int desloc = Integer.parseInt(sc.nextLine());
 

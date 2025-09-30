@@ -5,30 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candidatos</title>
-    <link rel="stylesheet" href="css/">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <section>
+        <h1>Candidatos a eleição presidencial 2022</h1>
 
-    <form action="">
-        <input type="button" value="Gerar Resultado" id="btnGerarResultado">
-    </form>
+        <form>
+            <button type="button" id="btnGerarResultado">Gerar resultado</button>
+        </form>
 
-    <img src="" alt="" id="imagemCand1">
-    <p>Nome do candidato: <span id="candSorteado1"></span></p>
-    <p>Partido: <span id="partSorteado1"></span></p>
-    <p>Percentual de votos: <span id="votosCand1"></span>%</p>
+        <div>
+            <article>
+                <img src="" alt="Candidato sorteado" id="imagemCand1">
+                <h2 id="candSorteado1"></h2>
+                <p>Partido: <span id="partSorteado1"></span></p>
+                <p><span id="votosCand1"></span>%</p>
+            </article>
 
-    <img src="" alt="" id="imagemCand2">
-    <p>Nome do candidato: <span id="candSorteado2"></span></p>
-    <p>Partido: <span id="partSorteado2"></span></p>
-    <p>Percentual de votos: <span id="votosCand2"></span>%</p>
+            <article>
+                <img src="" alt="Candidato sorteado" id="imagemCand2">
+                <h2 id="candSorteado2"></h2>
+                <p>Partido: <span id="partSorteado2"></span></p>
+                <p><span id="votosCand2"></span>%</p>
+            </article>
+        </div>
 
-    <p>Candidato(a) vencedor(a):
-        <span id="candVencedor"></span>
-        <span id="percVencedor"></span>
-    </p>
-
+        <p class="candResultado">Candidato(a) vencedor(a):
+            <span id="candVencedor"></span>
+        </p>
+    </section>
     <script src="js/script.js"></script>
 </body>
 

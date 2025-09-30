@@ -3,7 +3,7 @@ btnGerarResultado.addEventListener("click", gerarSorteio);
 
 function gerarSorteio() {
     candidatos = [
-        { nome: "Jair Bolsonaro", partido: "PL", imagem: "candidato1.png" },
+        { nome: "Jair Messias Bolsonaro", partido: "PL", imagem: "candidato1.png" },
         { nome: "Luiz Inácio Lula da Silva", partido: "PT", imagem: "candidato2.png" },
         { nome: "Ciro Gomes", partido: "PDT", imagem: "candidato3.png" },
         { nome: "Simone Tebet", partido: "MDB", imagem: "candidato4.png" }
