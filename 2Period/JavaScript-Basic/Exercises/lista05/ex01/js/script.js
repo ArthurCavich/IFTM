@@ -2,10 +2,10 @@ personagem = document.getElementById("personagem");
 mensagem = document.getElementById("mensagem");
 
 imagens = {
-    pensativo: "img/pensativo.png",
-    assustado: "img/assustado.png",
+    pensativo: "img/Pensativo.png",
+    assustado: "img/Assustado.png",
     alegre: "img/alegre.png",
-    nervoso: "img/nervoso.png"
+    nervoso: "img/Nervoso.png"
 }
 
 function pensativo() {
