@@ -22,12 +22,13 @@
             <button type="button" class="btn btn-primary">Search Recipes</button>
         </div>
         <div class="p-3">
-            <h1>Wild & Wacky Vegetables</h1>
-            <p>Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek celery
+            <h1 class="fw-bold">Wild & Wacky Vegetables</h1>
+            <p class="">Kale courgette salsify mustard broccoli seakale wakame potato fava bean tigernut leek
+                celery
                 spinach avocado cabbage celtuce rutabaga kohlrabi. Parsnip pea soko groundnut bitterleaf spring
                 onion. Grape dulse rutabaga lentil gram kakadu plum water spinach cabbage lotus root.
             </p>
-            <p>
+            <p class="">
                 Mung bean quandong kale prairie turnip celery gram zucchini pumpkin green bean silver beet chard
                 endive komatsuna eggplant kakadu plum radish broccoli. Arugula amaranth fennel wakame peanut
                 garlic chickweed. Sorrel jícama quandong kale chickpea water chestnut rock melon aubergine
@@ -42,11 +43,3 @@
 </body>
 
 </html>
-
-@Controller
-public class HomeController {
-    @GetMapping({"/", "/home"})
-    public String home() {
-        return "home";
-    }
-}
