@@ -1,1 +1,1 @@
-Realizando a lista de exercícios utilizando bootstrap para estilização.
+Estou realizando atividade de SpringBoot, da matéria MVC (Model-View-Controller) onde estou aprendendo a estilizar a página utilizando o framework Bootstrap.
