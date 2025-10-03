@@ -24,7 +24,8 @@ public class FigurasGeometricas {
     }
 
     public double areaQuadrado() {
-        return lado = lado * lado;
+        // Não altere o valor do lado ao calcular a área
+        return lado * lado;
     }
 
     public double areaTriangulo() {
@@ -45,53 +46,5 @@ public class FigurasGeometricas {
 
     public String exibeCirculo() {
         return "A área do círculo de centro (" + xc + ", " + yc + ") e de raio = " + raio + " vale: " + areaCirculo();
-    }
-
-    public double getLado() {
-        return lado;
-    }
-
-    public void setLado(double lado) {
-        this.lado = lado;
-    }
-
-    public double getBase() {
-        return base;
-    }
-
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    public double getXc() {
-        return xc;
-    }
-
-    public void setXc(double xc) {
-        this.xc = xc;
-    }
-
-    public double getYc() {
-        return yc;
-    }
-
-    public void setYc(double yc) {
-        this.yc = yc;
-    }
-
-    public double getRaio() {
-        return raio;
-    }
-
-    public void setRaio(double raio) {
-        this.raio = raio;
     }
 }
