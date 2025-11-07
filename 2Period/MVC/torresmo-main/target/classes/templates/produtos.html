@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout('Produtos', ~{::content}, 'danger')}">
+  <body>
+    <div th:fragment="content">
+      <!-- Mensagem de sucesso -->
+      <div th:if="${mensagem}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <span th:text="${mensagem}">Produto adicionado!</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+
+      <h1 class="mb-4">Cardápio</h1>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" th:each="produto : ${produtos}" th:object="${produto}">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-danger" th:text="*{nome}">Nome do Produto</h5>
+              <p class="card-text text-muted" th:text="*{descricao}">Descrição do produto</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="badge bg-secondary" th:text="*{tamanho}">500g</span>
+                <span class="fs-4 fw-bold text-danger" th:text="*{#numbers.formatCurrency(preco)}">R$ 0,00</span>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+              <form th:action="@{'/carrinho/adicionar/' + *{idProduto}}" method="post">
+                <button type="submit" class="btn btn-danger w-100">🛒 Adicionar ao Carrinho</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
