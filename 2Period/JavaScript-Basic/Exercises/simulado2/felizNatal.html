@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Natal!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        #btnNroFalas {
+            width: 300px;
+            height: 60px;
+            margin: 10px;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        #btnNroFalas:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="txtFalas">Quantas falas do Papai Noel?:</label>
+        <input type="text" id="txtFalas">
+        <br>
+        <input type="button" class="btnFalasPN" value="Mostrar falas do Papai Noel" id="btnNroFalas">
+    </form>
+    <div id="boxFalasPPN"></div>
+    <script src="js/felizNatal.js"></script>
+</body>
+
+</html>

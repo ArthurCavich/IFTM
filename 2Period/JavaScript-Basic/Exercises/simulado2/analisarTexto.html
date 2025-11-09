@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Texto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <form id="formAnalise">
+        <p>1) Texto informado pelo usuário na página anterior: <br><br>
+            <span id="txtHome"></span>
+        </p>
+
+
+        <p>2) Você gostaria de analisar a informação disponibilizada pelo usuário na página anterior?</p>
+        <select id="selOpcao">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <br>
+
+        <p>OBS: Se você responder "não" na pergunta anterior, por favor informe um novo texto na caixa abaixo:</p>
+        <input type="text" id="campoTexto" class="txtBox">
+        <input type="button" value="Analisar" id="btnAnalisarTexto">
+        <hr>
+        <p>3) Quantidade de palavras contidas no texto: <span id="txtTotalPal"></span></p>
+
+        <label>4) Palavras iniciadas com a letra M:</label>
+        <input type="text" id="txtPalLetraM" disabled>
+        <br><br>
+
+        <label>5) Primeira palavra do texto:</label>
+        <input type="text" id="primPalavra" disabled>
+        <br><br>
+
+        <label>6) Segunda palavra do texto:</label>
+        <input type="text" id="segPalavra" disabled>
+        <br><br>
+
+        <label>7) Última palavra do texto:</label>
+        <input type="text" id="ultPalavra" disabled>
+        <br><br>
+
+        <input type="button" value="Abrir a página do papai noel" id="btnPapaiNoel">
+    </form>
+
+    <script src="js/analisarTexto.js"></script>
+</body>
+
+</html>
