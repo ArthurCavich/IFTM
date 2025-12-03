@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 09</title>
+</head>
+
+<body>
+    <h1>Formulário de Cadastro</h1>
+    <form action="">
+        <label for="">A) Data de Nascimento:</label>
+        <input type="text" id="nascimento" placeholder="dd/mm/aaaa ou dd/mm/aa">
+        <input type="button" value="Preencher Auto" id="btnPreencherNasc">
+        <input type="button" value="Validar" id="btnValidarNasc">
+        <br><br>
+        <label for="">B) CPF:</label>
+        <input type="text" id="cpf" placeholder="xxx.xxx.xxx-xx" onkeypress="inserirMascara('cpf','xxx.xxx.xxx-xx');">
+        <input type="button" value="Preencher" id="btnPreencherCPF">
+        <input type="button" value="Validar" id="btnValidarCPF">
+        <br><br>
+        <label for="">C) Nº Matrícula:</label>
+        <input type="" id="matricula" placeholder="IFTM-xxx/xxx-yy ou iftm-xxx/xxx-yy">
+        <input type="button" value="Preencher" id="btnPreencherMatricula">
+        <input type="button" id="btnValidarMatricula" value="Validar">
+        <br><br>
+        <label for="">D) Código da Disciplina:</label>
+        <input type="text" id="disciplina" placeholder="MT-xx.xxx-IFTM"
+            onkeypress="inserirMascara('disciplina', 'MT-xx.xxx-IFTM');">
+        <input type="button" value="Preencher" id="btnPreencherDisciplina">
+        <input type="button" value="Validar" id="btnValidarDisciplina">
+        <br><br>
+        <label for="">E) Código da Disciplina 2:</label>
+        <input type="text" id="disciplina2" placeholder="MT-xx.xxx-IFTM"
+            onkeypress="inserirMascara('disciplina2', 'MT-xx.xxx-IFTM')">
+        <input type="button" value="Preencher" id="btnPreencherDisciplina2">
+        <input type="button" id="btnValidarDisciplina2" value="Validar">
+        <br><br>
+        <label for="">F) Código da Disciplina 3:</label>
+        <input type="text" id="disciplina3" placeholder="MT-xx.xxx-IFTM">
+        <input type="button" value="Preencher" id="btnPreencherDisciplina3">
+        <input type="button" value="Validar" id="btnValidarDisciplina3">
+        <br><br>
+        <label for="">G) Código da Disciplina 4:</label>
+        <input type="text" id="disciplina4" placeholder="MT-xx.xxx-IFTM Y">
+        <input type="button" value="Preencher" id="btnPreencherDisciplina4">
+        <input type="button" id="btnValidarDisciplina4" value="Validar">
+        <br><br>
+        <label for="">H) Nome do Campus:</label>
+        <input type="text" id="campus" placeholder="IFTM campus Uberlândia / Uberlândia Centro">
+        <input type="button" value="Preencher" id="btnPreencherCampus">
+        <input type="button" value="Validar" id="btnValidarCampus">
+        <br><br>
+
+        <label for="">I) Telefone:</label>
+        <input type="text" id="telefone" placeholder="+yy(xx)xxxxx-xxxx"
+            onkeypress="inserirMascara('telefone', '+yy(xx)xxxxx-xxxx')">
+        <input type="button" value="Preencher" id="btnPreencherTelefone">
+        <input type="button" value="Validar" id="btnValidarTelefone">
+        <br><br>
+
+        <label for="">J) Telefone 2:</label>
+        <input type="text" id="telefone2" placeholder="(xx)xxxxx-xxxx ou (xxx)xxxxx-xxxx">
+        <input type="button" value="Preencher" id="btnPreencherTelefone2">
+        <input type="button" value="Validar" id="btnValidarTelefone2">
+        <br><br>
+
+        <label for="">K) Altura:</label>
+        <input type="text" id="altura" placeholder="(Ex: 1,3 ou 1.3)">
+        <input type="button" value="Preencher" id="btnPreencherAltura">
+        <input type="button" value="Validar" id="btnValidarAltura">
+        <br><br>
+
+        <label for="">L) Faturamento Anual de uma Empresa:</label>
+        <input type="text" id="faturamento" placeholder="R$999.999.999.999,99">
+        <input type="button" value="Preencher Auto" id="btnPreencherFaturamento">
+        <input type="button" value="Validar" id="btnValidarFaturamento">
+        <br><br>
+
+        <label for="">M) Cronômetro:</label>
+        <input type="text" id="cronometro" placeholder="HH:MM:SS:CC"
+            onkeypress="inserirMascara('cronometro', 'HH:MM:SS:CC')">
+        <input type="button" value="Preencher" id="btnPreencherCrono">
+        <input type="button" value="Validar Cronômetro" id="btnValidarCrono">
+        <br><br>
+
+        <label for="">N) Senha:</label>
+        <input type="text" id="senha" placeholder="X&W.Y.Z-U,V.T ou X&W.Y-U,V.T">
+        <input type="button" value="Preencher" id="btnPreencherSenha">
+        <input type="button" value="Validar Senha" id="btnValidarSenha">
+        <br><br>
+    </form>
+
+    <script src="js/script.js"></script>
+    <script src="js/jMaskWiFi.js"></script>
+</body>
+
+</html>
