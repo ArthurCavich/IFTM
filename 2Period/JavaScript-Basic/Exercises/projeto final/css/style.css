@@ -31,6 +31,24 @@ body.tema-dificil{
     color: #ffe7e7;
 }
 
+/* Cores de tracejado por dificuldade */
+body.tema-facil .letras{
+    border-bottom-color: #5d3bc4;
+    color: #fff;
+}
+body.tema-medio .letras{
+    border-bottom-color: #ff7a00;
+    color: #fff;
+}
+body.tema-dificil .letras{
+    border-bottom-color: #ff4d4d;
+    color: #fff;
+}
+
+#jogarNovamente{
+    display: none !important;
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -101,10 +119,10 @@ body.tema-dificil{
 
 #categoria{
     margin-top: 30px;
-    color: #8b008b;
     font-size: 1.2em;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
+    color: #000;
 }
 
 #abreModalAddPalavra, #recarregar, #jogarAutomatico, #jogarNovamente{

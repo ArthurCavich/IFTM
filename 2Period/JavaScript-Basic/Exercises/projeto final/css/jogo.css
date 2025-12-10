@@ -29,7 +29,7 @@
     padding: 8px 20px;
     border: 2px solid #8b008b;
     background: #fff;
-    color: #8b008b;
+    color: #000;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -38,13 +38,13 @@
 
 .btn-nivel:hover{
     background: #fff;
-    color: #8b008b;
+    color: #000;
     border-color: #8b008b;
 }
 
 .btn-nivel.active{
     background: #8b008b;
-    color: #fff;
+    color: #000;
 }
 
 /* Ajuste de espaçamento entre usuário e níveis */
@@ -64,7 +64,7 @@
 .timer{
     font-size: 24px;
     font-weight: bold;
-    color: #8b008b;
+    color: #000;
     padding: 10px 20px;
     background: #fff;
     border-radius: 10px;
@@ -74,8 +74,8 @@
 /* Ajustes de contraste para tema difícil */
 body.tema-dificil .timer{
     background: #1f1a2e;
-    border-color: #a57bff;
-    color: #e8e2ff;
+    border-color: #ff4d4d;
+    color: #000;
 }
 
 body.tema-dificil .btn-nivel,
@@ -171,21 +171,21 @@ body.tema-dificil .header-jogo{
 body.tema-facil .btn-nivel:hover,
 body.tema-facil .btn-nivel.active:hover{
     background: #5d3bc4;
-    color: #fff;
+    color: #000;
     border-color: #5d3bc4;
 }
 
 body.tema-medio .btn-nivel:hover,
 body.tema-medio .btn-nivel.active:hover{
     background: #ff7a00;
-    color: #fff;
+    color: #000;
     border-color: #ff7a00;
 }
 
 body.tema-dificil .btn-nivel:hover,
 body.tema-dificil .btn-nivel.active:hover{
     background: #b30021;
-    color: #ffe7e7;
+    color: #000;
     border-color: #b30021;
 }
 
