@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+body{
+    background: linear-gradient(135deg, #ffe9a3 0%, #ffd166 40%, #f7b733 90%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 20px;
+    color: #4d3200;
+}
+
+.home-container{
+    width: 100%;
+    max-width: 480px;
+}
+
+.home-card{
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.home-card h1{
+    margin: 0 0 10px 0;
+    color: #a86200;
+    font-weight: 700;
+}
+
+.home-card p{
+    margin: 0 0 25px 0;
+    color: #5d3a00;
+    font-size: 16px;
+}
+
+.user-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.user-bar #userName{
+    font-weight: 700;
+    color: #8b008b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-actions{
+    display: grid;
+    gap: 12px;
+}
+
+.btn-home{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #754600;
+    background: #fff7e0;
+    border: 2px solid #d18b00;
+    transition: all 0.2s ease;
+}
+
+.btn-home:hover{
+    background: #d18b00;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(209,139,0,0.35);
+}
+
+.btn-home.primary{
+    background: #d18b00;
+    color: #fff;
+}
+
+.btn-home.primary:hover{
+    background: #b77700;
+    color: #fff;
+}
+
+.btn-home.logout{
+    background: #8c8c8c;
+    color: #fff;
+    border-color: #8c8c8c;
+    padding: 8px 12px;
+}
+
+.btn-home.logout:hover{
+    background: #545b62;
+    border-color: #545b62;
+    color: #fff;
+}
+

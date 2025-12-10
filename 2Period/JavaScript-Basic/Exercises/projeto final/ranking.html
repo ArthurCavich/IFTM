@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/ranking.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Ranking - Jogo da Forca</title>
+</head>
+<body>
+    <div class="ranking-container">
+        <div class="ranking-header">
+            <h1>🏆 Ranking</h1>
+            <p>Melhores jogadores por nível de dificuldade</p>
+        </div>
+        
+        <div class="niveis-tabs">
+            <button class="tab-nivel active" onclick="mostrarRanking('facil')">Fácil</button>
+            <button class="tab-nivel" onclick="mostrarRanking('medio')">Médio</button>
+            <button class="tab-nivel" onclick="mostrarRanking('dificil')">Difícil</button>
+        </div>
+        
+        <div id="ranking-content">
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Posição</th>
+                        <th>Usuário</th>
+                        <th>Resultado</th>
+                        <th>Tempo</th>
+                        <th>Tentativas</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="ranking-body">
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="jogo.html" class="btn-voltar">← Voltar ao Jogo</a>
+        </div>
+    </div>
+
+    <script src="js/ranking.js"></script>
+</body>
+</html>
+

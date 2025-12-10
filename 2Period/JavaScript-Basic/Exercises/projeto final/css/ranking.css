@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+body{
+    background: linear-gradient(135deg, #ffe9a3 0%, #ffd166 40%, #f7b733 90%);
+    min-height: 100vh;
+    padding: 24px;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    color: #4d3200;
+}
+
+.ranking-container{
+    background: #fff;
+    padding: 36px;
+    border-radius: 18px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ranking-header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ranking-header h1{
+    color: #a86200;
+    font-weight: bold;
+}
+
+.niveis-tabs{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-nivel{
+    padding: 10px 30px;
+    border: 2px solid #d18b00;
+    background: #fff;
+    color: #754600;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.tab-nivel:hover{
+    background: #d18b00;
+    color: #fff;
+}
+
+.tab-nivel.active{
+    background: #d18b00;
+    color: #fff;
+}
+
+.ranking-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th{
+    background: #d18b00;
+    color: #fff;
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.ranking-table td{
+    padding: 14px 16px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.ranking-table tr:hover{
+    background: #f5f5f5;
+}
+
+.posicao{
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.posicao.ouro{ color: #FFD700; }
+.posicao.prata{ color: #C0C0C0; }
+.posicao.bronze{ color: #CD7F32; }
+
+.venceu{
+    color: #28a745;
+    font-weight: bold;
+}
+
+.perdeu{
+    color: #dc3545;
+}
+
+.btn-voltar{
+    background: #d18b00;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-voltar:hover{
+    background: #b77700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sem-dados{
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+

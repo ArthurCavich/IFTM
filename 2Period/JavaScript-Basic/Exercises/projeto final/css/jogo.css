@@ -1,0 +1,203 @@
+.header-jogo{
+    background: linear-gradient(135deg, #7a5cf0 0%, #5d3bc4 100%);
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.usuario-info{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.niveis-dificuldade{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-nivel{
+    padding: 8px 20px;
+    border: 2px solid #8b008b;
+    background: #fff;
+    color: #8b008b;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-nivel:hover{
+    background: #fff;
+    color: #8b008b;
+    border-color: #8b008b;
+}
+
+.btn-nivel.active{
+    background: #8b008b;
+    color: #fff;
+}
+
+/* Ajuste de espaçamento entre usuário e níveis */
+.header-jogo .niveis-dificuldade{
+    margin-left: auto;
+}
+
+.controles-timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.timer{
+    font-size: 24px;
+    font-weight: bold;
+    color: #8b008b;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #8b008b;
+}
+
+/* Ajustes de contraste para tema difícil */
+body.tema-dificil .timer{
+    background: #1f1a2e;
+    border-color: #a57bff;
+    color: #e8e2ff;
+}
+
+body.tema-dificil .btn-nivel,
+body.tema-dificil .btn-controle,
+body.tema-dificil .ranking-link{
+    border-color: #ff4d4d;
+}
+
+body.tema-dificil .btn-nivel.active{
+    background: #ff4d4d;
+    color: #1b0004;
+}
+
+body.tema-dificil .btn-controle{
+    box-shadow: none;
+}
+
+body.tema-dificil .btn-play{ background: #28a745; }
+body.tema-dificil .btn-pause{ background: #ff8c1a; }
+body.tema-dificil .btn-stop{ background: #b30021; }
+body.tema-dificil .btn-sair{ background: #6c757d; }
+
+body.tema-medio .btn-nivel.active{
+    background: #ff9f43;
+    border-color: #ff9f43;
+    color: #fff;
+}
+
+body.tema-medio .btn-nivel{
+    border-color: #ff9f43;
+    color: #c76f00;
+}
+
+body.tema-medio .timer{
+    border-color: #ff9f43;
+    color: #c76f00;
+}
+
+.btn-controle{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+.btn-play{ background: #28a745; }
+.btn-pause{ background: #ffc107; }
+.btn-stop{ background: #dc3545; }
+.btn-sair{ background: #6c757d; }
+
+.btn-controle:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.ranking-link{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #8b008b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.ranking-link:hover{
+    background: #6a006a;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Header/controles por tema */
+body.tema-facil .header-jogo{
+    background: linear-gradient(135deg, #7a5cf0 0%, #5d3bc4 100%);
+}
+
+body.tema-medio .header-jogo{
+    background: linear-gradient(135deg, #ff9a3c 0%, #ff7a00 100%);
+}
+
+body.tema-dificil .header-jogo{
+    background: linear-gradient(135deg, #8a0016 0%, #b30021 100%);
+}
+
+/* Hovers coerentes com a cor do nível */
+body.tema-facil .btn-nivel:hover,
+body.tema-facil .btn-nivel.active:hover{
+    background: #5d3bc4;
+    color: #fff;
+    border-color: #5d3bc4;
+}
+
+body.tema-medio .btn-nivel:hover,
+body.tema-medio .btn-nivel.active:hover{
+    background: #ff7a00;
+    color: #fff;
+    border-color: #ff7a00;
+}
+
+body.tema-dificil .btn-nivel:hover,
+body.tema-dificil .btn-nivel.active:hover{
+    background: #b30021;
+    color: #ffe7e7;
+    border-color: #b30021;
+}
+
+body.tema-facil .btn-controle:hover{
+    box-shadow: 0 5px 15px rgba(93,59,196,0.25);
+}
+
+body.tema-medio .btn-controle:hover{
+    box-shadow: 0 5px 15px rgba(255,122,0,0.3);
+}
+
+body.tema-dificil .btn-controle:hover{
+    box-shadow: 0 5px 15px rgba(179,0,33,0.35);
+}
+
