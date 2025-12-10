@@ -4,49 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/ranking.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/ranking.css"> <!-- estilização do ranking -->
     <title>Ranking - Jogo da Forca</title>
 </head>
 <body>
-    <div class="ranking-container">
-        <div class="ranking-header">
+    <div class="ranking-container"> <!-- container do ranking -->
+        <div class="ranking-header"> <!-- header do ranking -->
             <h1>🏆 Ranking</h1>
-            <p>Melhores jogadores por nível de dificuldade</p>
+            <p>Melhores jogadores por nível de dificuldade</p> <!-- descrição do ranking -->
         </div>
         
         <div class="niveis-tabs">
-            <button class="tab-nivel active" onclick="mostrarRanking('facil')">Fácil</button>
-            <button class="tab-nivel" onclick="mostrarRanking('medio')">Médio</button>
-            <button class="tab-nivel" onclick="mostrarRanking('dificil')">Difícil</button>
+            <button class="tab-nivel active" data-nivel="facil" onclick="mostrarRanking('facil', this)">Fácil</button> <!-- botão de nível fácil -->
+            <button class="tab-nivel" data-nivel="medio" onclick="mostrarRanking('medio', this)">Médio</button> <!-- botão de nível médio -->
+            <button class="tab-nivel" data-nivel="dificil" onclick="mostrarRanking('dificil', this)">Difícil</button> <!-- botão de nível difícil -->
         </div>
         
-        <div id="ranking-content">
-            <div class="ranking-table-wrapper">
-                <table class="ranking-table">
-                    <thead>
+        <div id="ranking-content"> <!-- conteúdo do ranking -->
+            <div class="ranking-table-wrapper"> <!-- wrapper da tabela de ranking -->
+                <table class="ranking-table"> <!-- tabela de ranking -->
+                    <thead> <!-- cabeçalho da tabela -->
                         <tr>
-                            <th style="min-width: 80px;">Posição</th>
-                            <th style="min-width: 140px;">Usuário</th>
-                            <th style="min-width: 120px;">Resultado</th>
-                            <th style="min-width: 100px;">Tempo</th>
-                            <th style="min-width: 110px;">Tentativas</th>
-                            <th style="min-width: 160px;">Data</th>
+                            <th style="min-width: 80px;">Posição</th> <!-- coluna de posição -->
+                            <th style="min-width: 140px;">Usuário</th> <!-- coluna de usuário -->
+                            <th style="min-width: 120px;">Resultado</th> <!-- coluna de resultado -->
+                            <th style="min-width: 100px;">Tempo</th> <!-- coluna de tempo -->
+                            <th style="min-width: 110px;">Tentativas</th> <!-- coluna de tentativas -->
+                            <th style="min-width: 160px;">Data</th> <!-- coluna de data -->
                         </tr>
                     </thead>
-                    <tbody id="ranking-body">
+                    <tbody id="ranking-body"> <!-- corpo da tabela de ranking -->
                     </tbody>
                 </table>
             </div>
         </div>
         
-        <div style="text-align: center;">
-            <a href="jogo.html" class="btn-voltar">← Voltar ao Jogo</a>
+        <div style="text-align: center;"> <!-- botão de voltar ao jogo -->
+            <a href="jogo.html" class="btn-voltar">← Voltar ao Jogo</a> <!-- link para voltar ao jogo -->
         </div>
     </div>
 
-    <script src="js/ranking.js"></script>
+    <script src="js/ranking.js"></script> <!-- script do ranking -->
 </body>
 </html>
 

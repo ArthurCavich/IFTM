@@ -1,17 +1,18 @@
-// Função para cadastrar novo usuário
+// Cadastra novo usuário
 document.addEventListener("DOMContentLoaded", function() {
-    const formCadastro = document.getElementById("formCadastro");
+    const formularioCadastro = document.getElementById("formularioCadastro");
     
-    formCadastro.addEventListener("submit", function(e) {
-        e.preventDefault();
+    // Lida com envio do formulário de cadastro
+    formularioCadastro.addEventListener("submit", function(e) {
+        e.preventDefault(); // previne o envio do formulário
         
         const nome = document.getElementById("nome").value.trim();
-        const username = document.getElementById("username").value.trim();
+        const usuario = document.getElementById("usuario").value.trim();
         const senha = document.getElementById("senha").value.trim();
         const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
         
         // Validação dos campos
-        if (nome === "" || username === "" || senha === "" || confirmarSenha === "") {
+        if (nome === "" || usuario === "" || senha === "" || confirmarSenha === "") {
             Swal.fire({
                 icon: 'error',
                 title: 'Erro!',
@@ -22,23 +23,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         // Validação do tamanho mínimo
-        if (username.length < 3) {
+        if (usuario.length < 3) {
             Swal.fire({
                 icon: 'error',
                 title: 'Erro!',
                 text: 'O nome de usuário deve ter pelo menos 3 caracteres!',
-                confirmButtonColor: '#d18b00'
-            });
-            return;
-        }
-        
-        // Requisitos de senha: mínimo 6 chars, pelo menos 1 letra e 1 número
-        const senhaRegex = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
-        if (!senhaRegex.test(senha)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Senha fraca!',
-                text: 'Use pelo menos 6 caracteres, com letras e números.',
                 confirmButtonColor: '#d18b00'
             });
             return;
@@ -59,10 +48,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
         
         // Verificar se o usuário já existe
-        const usuarioExiste = usuarios.find(u => u.username === username);
+        const usuarioExiste = usuarios.find(u => u.usuario === usuario);
         
         if (usuarioExiste) {
-            Swal.fire({
+            Swal.fire({ // exibe o alerta de erro
                 icon: 'error',
                 title: 'Erro!',
                 text: 'Este nome de usuário já está em uso!',
@@ -74,20 +63,20 @@ document.addEventListener("DOMContentLoaded", function() {
         // Adicionar novo usuário
         const novoUsuario = {
             nome: nome,
-            username: username,
+            usuario: usuario,
             senha: senha
         };
         
         usuarios.push(novoUsuario);
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        localStorage.setItem('usuarios', JSON.stringify(usuarios)); // salva os usuários no localStorage
         
         Swal.fire({
             icon: 'success',
             title: 'Cadastro realizado!',
             text: 'Conta criada com sucesso!',
-            confirmButtonColor: '#8b008b'
+            confirmButtonColor: '#8b008b' // cor do botão de confirmação
         }).then(() => {
-            window.location.href = 'login.html';
+            window.location.href = 'login.html'; // redireciona para a página de login
         });
     });
 });

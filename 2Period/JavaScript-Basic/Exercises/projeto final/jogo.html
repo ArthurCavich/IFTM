@@ -4,44 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css" media="screen">
-    <link rel="stylesheet" href="./css/jogo.css" media="screen">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="./css/jogo.css" media="screen"> <!-- estilização do jogo -->
+    <title>Jogo da Forca</title> <!-- título do jogo -->
 </head>
 <body>
-    <a href="ranking.html" class="ranking-link">🏆 Ranking</a>
+    <a href="ranking.html" class="link-ranking">🏆 Ranking</a> <!-- link para o ranking -->
     
-    <div class="container">
-        <div class="header-jogo">
-            <div class="usuario-info">
-                <span id="nomeUsuario">Jogador</span>
+    <div class="container-jogo"> <!-- container do jogo -->
+        <div class="cabecalho-jogo"> <!-- header do jogo -->
+            <div class="usuario-info-jogo"> <!-- informações do usuário -->
+                <span id="nomeJogador">Jogador</span> <!-- nome do jogador -->
             </div>
-            <div class="niveis-dificuldade">
-                <button class="btn-nivel active" onclick="definirNivelDificuldade('facil')">Fácil</button>
-                <button class="btn-nivel" onclick="definirNivelDificuldade('medio')">Médio</button>
-                <button class="btn-nivel" onclick="definirNivelDificuldade('dificil')">Difícil 👹</button>
+            <div class="niveis-dificuldade"> <!-- níveis de dificuldade -->
+                <button class="btn-nivel active" data-nivel="facil" onclick="definirNivelDificuldade('facil', this)">Fácil</button> <!-- botão de nível fácil -->
+                <button class="btn-nivel" data-nivel="medio" onclick="definirNivelDificuldade('medio', this)">Médio</button> <!-- botão de nível médio -->
+                <button class="btn-nivel" data-nivel="dificil" onclick="definirNivelDificuldade('dificil', this)">Difícil 👹</button> <!-- botão de nível difícil -->
             </div>
         </div>
 
-        <div class="controles-timer">
+        <div class="controles-timer"> <!-- controles e timer -->
             <div class="timer" id="timer">05:00</div>
-            <button class="btn-controle btn-play" onclick="iniciarJogo()" id="btnPlay">
-                <i class='bx bx-play'></i> Iniciar
+            <button class="btn-controle btn-play" onclick="iniciarJogo()" id="btnPlay"> <!-- botão de iniciar o jogo -->
+                ▶ Iniciar
             </button>
-            <button class="btn-controle btn-pause" onclick="pausarJogo()" id="btnPause" disabled>
-                <i class='bx bx-pause'></i> Pausar
+            <button class="btn-controle btn-pause" onclick="pausarJogo()" id="btnPause" disabled> <!-- botão de pausar o jogo -->
+                ⏸ Pausar
             </button>
-            <button class="btn-controle btn-stop" onclick="pararJogo()" id="btnStop" disabled>
-                <i class='bx bx-stop'></i> Parar
+            <button class="btn-controle btn-stop" onclick="pararJogo()" id="btnStop" disabled> <!-- botão de parar o jogo -->
+                ⏹ Parar
             </button>
-            <button class="btn-controle btn-sair" onclick="sairJogo()">
-                <i class='bx bx-exit'></i> Sair
+            <button class="btn-controle btn-sair" onclick="sairJogo()"> <!-- botão de sair do jogo -->
+                ⏏ Sair
             </button>
         </div>
 
-        <div id="imagem"></div>
+        <div class="tentativas" id="tentativas-info">Tentativas: 0</div>
+
+        <div id="imagem"></div> <!-- imagem do jogo -->
 
         <div id="palavra-secreta"></div>
 
@@ -82,32 +81,12 @@
 
         <div id="categoria"></div>
 
-        <!-- Modal Bootstrap-->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modalBody"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <img src="img/jogarNovamente.gif" id="jogarNovamente" style="display: none;"></img>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
+    <script src="js/jogo.js"></script> <!-- script do jogo -->
 </body>
 </html>
 

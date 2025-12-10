@@ -4,41 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/login.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/login.css"> <!-- estilização do login -->
     <title>Login - Jogo da Forca</title>
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-header">
-            <h1>🎮 Jogo da Forca</h1>
-            <p>Faça login para começar</p>
+    <div class="container-autenticacao"> <!-- container do login -->
+        <div class="cabecalho-autenticacao"> <!-- header do login -->
+            <div class="titulo-autenticacao">
+                <img src="img/forca.png" alt="Forca" class="icone-forca-pequena">
+                <h1>Jogo da Forca</h1> <!-- título do login -->
+            </div>
+            <p>Faça login para começar</p> <!-- descrição do login -->
         </div>
         
-        <form id="formLogin">
-            <div class="form-group">
-                <label for="username">Nome de Usuário</label>
-                <input type="text" class="form-control" id="username" placeholder="Digite seu usuário" required>
+        <form id="formularioLogin"> <!-- formulário do login -->
+            <div class="grupo-formulario"> <!-- grupo de formulário -->
+                <label for="usuario">Nome de Usuário</label> <!-- label do campo de usuário -->
+                <input type="text" class="campo-formulario" id="usuario" placeholder="Digite seu usuário" required> <!-- campo de usuário -->
             </div>
             
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+            <div class="grupo-formulario"> <!-- grupo de formulário -->
+                <label for="senha">Senha</label> <!-- label do campo de senha -->
+                <input type="password" class="campo-formulario" id="senha" placeholder="Digite sua senha" required> <!-- campo de senha -->
             </div>
             
-            <button type="submit" class="btn btn-auth">Entrar</button>
+            <button type="submit" class="btn-autenticacao">Entrar</button> <!-- botão de login -->
         </form>
         
-        <div class="link-alt">
-            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
-            <p><a href="index.html">← Voltar para o início</a></p>
+        <div class="link-alternativo"> <!-- link alternativo -->
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p> <!-- link para cadastro -->
+            <p><a href="index.html">← Voltar para o início</a></p> <!-- link para voltar para a página inicial -->
         </div>
     </div>
 
-    <!-- Biblioteca jAlertWiFi -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetalert2 -->
+    <script src="js/login.js"></script> <!-- script do login -->
 </body>
 </html>
 

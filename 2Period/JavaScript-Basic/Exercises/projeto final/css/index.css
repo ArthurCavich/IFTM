@@ -12,12 +12,12 @@ body{
     color: #4d3200;
 }
 
-.home-container{
+.container-inicio{
     width: 100%;
     max-width: 480px;
 }
 
-.home-card{
+.card-inicio{
     background: #fff;
     padding: 40px;
     border-radius: 16px;
@@ -25,19 +25,33 @@ body{
     text-align: center;
 }
 
-.home-card h1{
+.titulo-inicio{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin: 0 0 10px 0;
+}
+
+.titulo-inicio h1{
+    margin: 0;
     color: #a86200;
     font-weight: 700;
 }
 
-.home-card p{
+.card-inicio p{
     margin: 0 0 25px 0;
     color: #5d3a00;
     font-size: 16px;
 }
 
-.user-bar{
+.icone-forca-pequena{
+    width: 38px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.barra-usuario{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +59,7 @@ body{
     margin-bottom: 16px;
 }
 
-.user-bar #userName{
+.barra-usuario #nomeUsuarioBarra{
     font-weight: 700;
     color: #8b008b;
     overflow: hidden;
@@ -53,12 +67,12 @@ body{
     white-space: nowrap;
 }
 
-.home-actions{
+.acoes-inicio{
     display: grid;
     gap: 12px;
 }
 
-.btn-home{
+.btn-inicio{
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -73,31 +87,31 @@ body{
     transition: all 0.2s ease;
 }
 
-.btn-home:hover{
+.btn-inicio:hover{
     background: #d18b00;
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(209,139,0,0.35);
 }
 
-.btn-home.primary{
+.btn-inicio.primario{
     background: #d18b00;
     color: #fff;
 }
 
-.btn-home.primary:hover{
+.btn-inicio.primario:hover{
     background: #b77700;
     color: #fff;
 }
 
-.btn-home.logout{
+.btn-inicio.sair{
     background: #8c8c8c;
     color: #fff;
     border-color: #8c8c8c;
     padding: 8px 12px;
 }
 
-.btn-home.logout:hover{
+.btn-inicio.sair:hover{
     background: #545b62;
     border-color: #545b62;
     color: #fff;

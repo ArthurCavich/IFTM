@@ -57,6 +57,46 @@ body{
     color: #fff;
 }
 
+/* Cores por dificuldade (alinhadas com o jogo) */
+.ranking-container.nivel-facil .tab-nivel.active{
+    background: #7a5cf0;
+    border-color: #7a5cf0;
+    color: #fff;
+}
+.ranking-container.nivel-facil .tab-nivel{
+    border-color: #7a5cf0;
+    color: #4a2f99;
+}
+.ranking-container.nivel-facil .ranking-table th{
+    background: #7a5cf0;
+}
+
+.ranking-container.nivel-medio .tab-nivel.active{
+    background: #ff9a3c;
+    border-color: #ff9a3c;
+    color: #fff;
+}
+.ranking-container.nivel-medio .tab-nivel{
+    border-color: #ff9a3c;
+    color: #c76f00;
+}
+.ranking-container.nivel-medio .ranking-table th{
+    background: #ff9a3c;
+}
+
+.ranking-container.nivel-dificil .tab-nivel.active{
+    background: #b30021;
+    border-color: #b30021;
+    color: #fff;
+}
+.ranking-container.nivel-dificil .tab-nivel{
+    border-color: #b30021;
+    color: #7a0016;
+}
+.ranking-container.nivel-dificil .ranking-table th{
+    background: #b30021;
+}
+
 .ranking-table{
     width: 100%;
     border-collapse: collapse;

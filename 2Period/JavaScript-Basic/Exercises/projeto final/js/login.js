@@ -1,15 +1,15 @@
-// Função para validar e fazer login
 document.addEventListener("DOMContentLoaded", function() {
-    const formLogin = document.getElementById("formLogin");
+    const formularioLogin = document.getElementById("formularioLogin");
     
-    formLogin.addEventListener("submit", function(e) {
+    // Lida com o envio do formulário de login
+    formularioLogin.addEventListener("submit", function(e) {
         e.preventDefault();
         
-        const username = document.getElementById("username").value.trim();
+        const usuario = document.getElementById("usuario").value.trim();
         const senha = document.getElementById("senha").value.trim();
         
         // Validação dos campos
-        if (username === "" || senha === "") {
+        if (usuario === "" || senha === "") {
             Swal.fire({
                 icon: 'error',
                 title: 'Erro!',
@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Buscar usuário no localStorage
         const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-        const usuarioEncontrado = usuarios.find(u => u.username === username && u.senha === senha);
+        const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha);
         
         if (usuarioEncontrado) {
             // Salvar usuário logado
             localStorage.setItem('usuarioLogado', JSON.stringify({
-                username: username,
+                usuario: usuario,
                 nome: usuarioEncontrado.nome
             }));
             
             Swal.fire({
                 icon: 'success',
                 title: 'Login realizado!',
-                text: 'Bem-vindo, ' + username + '!',
+                text: 'Bem-vindo, ' + usuario + '!',
                 confirmButtonColor: '#d18b00',
                 timer: 1500,
                 showConfirmButton: true
