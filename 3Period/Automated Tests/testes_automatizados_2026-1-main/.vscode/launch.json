@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.calculadoraaula.calculadora.Main",
+            "projectName": "calculadora-aula"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CalculadoraAulaApplication<calculadora-aula>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.calculadoraaula.CalculadoraAulaApplication",
+            "projectName": "calculadora-aula",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
