@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 03</title>
+</head>
+
+<body>
+    <section>
+        <h1>Lista de Funcionários</h1>
+        <label for="opcao">Escolha uma opção:</label>
+        <select id="opcao">
+            <option value="1">1. Exibir o nome e a idade de todas as pessoas maiores de idade</option>
+            <option value="2">2. Exibir os nomes de todas as pessoas do sexo masculino</option>
+            <option value="3">3. Exibir os dados da pessoa com o maior salario</option>
+            <option value="4">4. Há alguma mulher que ganha acima de 5000,00?</option>
+            <option value="5">5. Media dos salarios dos homens e das mulheres</option>
+        </select>
+        <button id="btnResultado">Enviar</button>
+        <p id="resultado"></p>
+    </section>
+
+    <!-- Ordem: primeiro quem tem os dados (users.js), depois quem usa (script.js) -->
+    <script src="js/users.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

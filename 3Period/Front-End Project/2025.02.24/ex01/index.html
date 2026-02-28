@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 01 - 24/02</title>
+</head>
+<body>
+
+    <script>
+        let pessoas = [
+            {nome: "Wilton", idade: "44", salario: "2000", sexo: "m"},
+            {nome: "Ana", idade: "18", salario: "1000", sexo: "f"},
+            {nome: "Tiana", idade: "30", salario: "2500", sexo: "f"}
+    ];
+        //forEach - puxa todos os elementos do vetor...
+    pessoas.forEach(user => {
+        if (user.idade >= 18)
+        console.log(`${user.name} tem ${user.idade}`)
+    })
+
+    pessoas.filter(users => users.idade >= 18).forEach(user => console.log(`${user.nome} ganha ${user.salario}`));
+
+    console.log(users)
+
+    </script>
+    
+</body>
+</html>
