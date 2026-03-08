@@ -1,13 +1,12 @@
 package br.edu.iftm.aula03estudo.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-
-import br.edu.iftm.aula03estudo.domain.Contato;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.iftm.aula03estudo.domain.Contato;
 
 
 @RestController
