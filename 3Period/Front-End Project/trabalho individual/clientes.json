@@ -1,27 +1,27 @@
 [
-  {
-    "nome": "Mariana Souza",
-    "depoimento": "O produto chegou rápido e atendeu totalmente às minhas expectativas.",
-    "rating": 5
-  },
-  {
-    "nome": "Carlos Henrique",
-    "depoimento": "Gostei bastante da qualidade, mas a entrega demorou um pouco.",
-    "rating": 4
-  },
-  {
-    "nome": "Fernanda Lima",
-    "depoimento": "Muito bom custo-benefício, recomendo para quem busca praticidade.",
-    "rating": 5
-  },
-  {
-    "nome": "João Pedro",
-    "depoimento": "O produto funciona bem, porém a embalagem poderia ser melhor.",
-    "rating": 3
-  },
-  {
-    "nome": "Aline Martins",
-    "depoimento": "Fiquei satisfeita com a compra e com o atendimento recebido.",
-    "rating": 4
-  }
+    {
+        "nome": "Mariana Souza",
+        "depoimento": "O produto chegou rápido e atendeu totalmente às minhas expectativas.",
+        "rating": 5
+    },
+    {
+        "nome": "Carlos Henrique",
+        "depoimento": "Gostei bastante da qualidade, mas a entrega demorou um pouco.",
+        "rating": 4
+    },
+    {
+        "nome": "Fernanda Lima",
+        "depoimento": "Muito bom custo-benefício, recomendo para quem busca praticidade.",
+        "rating": 5
+    },
+    {
+        "nome": "João Pedro",
+        "depoimento": "O produto funciona bem, porém a embalagem poderia ser melhor.",
+        "rating": 3
+    },
+    {
+        "nome": "Aline Martins",
+        "depoimento": "Fiquei satisfeita com a compra e com o atendimento recebido.",
+        "rating": 4
+    }
 ]
