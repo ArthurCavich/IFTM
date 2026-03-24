@@ -1,0 +1,7 @@
+figure {
+    border: 5px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 5px auto;
+}
