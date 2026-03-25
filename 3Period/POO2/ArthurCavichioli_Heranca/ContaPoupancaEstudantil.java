@@ -1,13 +1,13 @@
 public class ContaPoupancaEstudantil extends ContaPoupanca {
-    private double limiteIsencaoTaxa;
+    private Double limiteIsencaoTaxa;
 
-    public ContaPoupancaEstudantil(String titular, double saldo, double taxaRendimento, double limiteIsencaoTaxa) {
+    public ContaPoupancaEstudantil(String titular, Double saldo, Double taxaRendimento, Double limiteIsencaoTaxa) {
         super(titular, saldo, taxaRendimento);
         this.limiteIsencaoTaxa = limiteIsencaoTaxa;
     }
 
     @Override
-    public boolean sacar(double valor) {
+    public boolean sacar(Double valor) {
         return super.sacar(valor);
     }
 

@@ -1,326 +1,348 @@
 import java.util.Scanner;
 
 public class SistemaBancario {
-    private static final Scanner SC = new Scanner(System.in);
 
     public static void main(String[] args) {
-        menu();
+        Scanner sc = new Scanner(System.in);
+
+        // Inicializa as contas no início
+        ContaBancaria cb = new ContaBancaria("Titular Comum", 1500.0);
+        ContaCorrente cc = new ContaCorrente("João Silva", 1000.0, 500.0);
+        ContaCorrenteEmpresarial cce = new ContaCorrenteEmpresarial("Empresa X", 5000.0, 2000.0, 100.0);
+        ContaCorrentePremium ccp = new ContaCorrentePremium("Maria Santos", 10000.0, 1000.0, 2.5);
+        ContaPoupanca cp = new ContaPoupanca("Pedro Costa", 2000.0, 0.5);
+        ContaPoupancaEstudantil cpe = new ContaPoupancaEstudantil("Ana Oliveira", 500.0, 0.3, 0.5);
+
+        boolean continuar = true;
+
+        while (continuar) {
+            System.out.println(menu());
+            System.out.print("Escolha: ");
+            int opcao = sc.nextInt();
+            sc.nextLine();
+
+            try {
+                switch (opcao) {
+                    case 1:
+                        menuContaBancaria(sc, cb);
+                        break;
+                    case 2:
+                        menuContaCorrente(sc, cc);
+                        break;
+                    case 3:
+                        menuContaCorrenteEmpresarial(sc, cce);
+                        break;
+                    case 4:
+                        menuContaCorrentePremium(sc, ccp);
+                        break;
+                    case 5:
+                        menuContaPoupanca(sc, cp);
+                        break;
+                    case 6:
+                        menuContaPoupancaEstudantil(sc, cpe);
+                        break;
+                    case 0:
+                        continuar = false;
+                        System.out.println("Encerrando...");
+                        break;
+                    default:
+                        throw new MinhasExcecoes("Opção inválida!");
+                }
+            } catch (MinhasExcecoes e) {
+                System.out.println("✗ Erro: " + e.getMessage());
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
     }
 
-    public static void menu() {
-        ContaBancaria contaBancaria = new ContaBancaria("Fulano", 1000.0);
-        ContaCorrente contaCorrente = new ContaCorrente("Ciclano", 1200.0, 500.0);
-        ContaPoupanca contaPoupanca = new ContaPoupanca("Beltrano", 800.0, 1.5);
-        ContaCorrentePremium contaCorrentePremium = new ContaCorrentePremium("Marina", 2000.0, 1000.0, 2.0);
-        ContaCorrenteEmpresarial contaCorrenteEmpresarial = new ContaCorrenteEmpresarial("Empresa X", 10000.0, 5000.0, 3.0);
-        ContaPoupancaEstudantil contaPoupancaEstudantil = new ContaPoupancaEstudantil("Ana", 600.0, 1.0, 150.0);
+    public static String menu() {
+        return "Qual o tipo de conta bancária?\n" +
+                "1- Conta Bancária\n" +
+                "2- Conta Corrente\n" +
+                "3- Conta Corrente Empresarial\n" +
+                "4- Conta Corrente Premium\n" +
+                "5- Conta Poupança\n" +
+                "6- Conta Poupança Estudantil\n" +
+                "0- Sair";
+    }
 
-        int opcao;
+    // ===== SUB-MENUS: OPERAÇÕES DE CADA CLASSE =====
 
-        do {
-            System.out.println("\n===== SISTEMA BANCARIO =====");
-            System.out.println("1. Conta Bancaria");
-            System.out.println("2. Conta Corrente");
-            System.out.println("3. Conta Poupanca");
-            System.out.println("4. Conta Corrente Premium");
-            System.out.println("5. Conta Corrente Empresarial");
-            System.out.println("6. Conta Poupanca Estudantil");
-            System.out.println("0. Sair");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
+    private static void menuContaBancaria(Scanner sc, ContaBancaria cb) throws MinhasExcecoes {
+        boolean operando = true;
 
-            switch (opcao) {
+        while (operando) {
+            System.out.println("\n--- CONTA BANCÁRIA (CLASSE PAI) ---");
+            System.out.println("1- Sacar");
+            System.out.println("2- Depositar");
+            System.out.println("3- Ver saldo");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
                 case 1:
-                    menuContaBancaria(contaBancaria);
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (cb.sacar(valor)) {
+                        System.out.println("✓ Saque realizado! " + cb.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
                     break;
                 case 2:
-                    menuContaCorrente(contaCorrente);
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    cb.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + cb.exibeSaldo());
                     break;
                 case 3:
-                    menuContaPoupanca(contaPoupanca);
-                    break;
-                case 4:
-                    menuContaCorrentePremium(contaCorrentePremium);
-                    break;
-                case 5:
-                    menuContaCorrenteEmpresarial(contaCorrenteEmpresarial);
-                    break;
-                case 6:
-                    menuContaPoupancaEstudantil(contaPoupancaEstudantil);
+                    System.out.println(cb.exibeSaldo());
                     break;
                 case 0:
-                    System.out.println("Sistema encerrado.");
+                    operando = false;
                     break;
                 default:
-                    System.out.println("Opcao invalida.");
+                    System.out.println("✗ Opção inválida!");
             }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaBancaria(ContaBancaria conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Bancaria ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaCorrente(ContaCorrente conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Corrente ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("4. Exibir limite cheque especial");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 4:
-                    System.out.println(conta.exibeLimiteChequeEspecial());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaPoupanca(ContaPoupanca conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Poupanca ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("4. Aplicar rendimento");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 4:
-                    conta.aplicarRendimento();
-                    System.out.println("Rendimento aplicado.");
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaCorrentePremium(ContaCorrentePremium conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Corrente Premium ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("4. Exibir limite cheque especial");
-            System.out.println("5. Exibir beneficio premium");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 4:
-                    System.out.println(conta.exibeLimiteChequeEspecial());
-                    break;
-                case 5:
-                    System.out.println(conta.exibeBeneficioPremium());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaCorrenteEmpresarial(ContaCorrenteEmpresarial conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Corrente Empresarial ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("4. Exibir limite cheque especial");
-            System.out.println("5. Solicitar emprestimo");
-            System.out.println("6. Exibir taxa juros emprestimo");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 4:
-                    System.out.println(conta.exibeLimiteChequeEspecial());
-                    break;
-                case 5:
-                    System.out.print("Valor do emprestimo: ");
-                    tentarEmprestimo(conta, SC.nextDouble());
-                    break;
-                case 6:
-                    System.out.println(conta.exibeTaxaJurosEmprestimo());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void menuContaPoupancaEstudantil(ContaPoupancaEstudantil conta) {
-        int opcao;
-
-        do {
-            System.out.println("\n--- Conta Poupanca Estudantil ---");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Exibir saldo");
-            System.out.println("4. Aplicar rendimento");
-            System.out.println("5. Exibir limite de isencao");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opcao: ");
-            opcao = SC.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor do deposito: ");
-                    conta.depositar(SC.nextDouble());
-                    System.out.println("Deposito realizado.");
-                    break;
-                case 2:
-                    System.out.print("Valor do saque: ");
-                    tentarSaque(conta, SC.nextDouble());
-                    break;
-                case 3:
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 4:
-                    conta.aplicarRendimento();
-                    System.out.println("Rendimento aplicado.");
-                    System.out.println(conta.exibeSaldo());
-                    break;
-                case 5:
-                    System.out.println(conta.exibeLimiteIsencao());
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("Opcao invalida.");
-            }
-        } while (opcao != 0);
-    }
-
-    public static void tentarSaque(ContaBancaria conta, double valor) {
-        try {
-            boolean resultado = conta.sacar(valor);
-            if (resultado) {
-                System.out.println("Saque realizado com sucesso.");
-                System.out.println(conta.exibeSaldo());
-            } else {
-                throw new MinhasExcecoes("Nao foi possivel realizar o saque.");
-            }
-        } catch (MinhasExcecoes e) {
-            System.out.println("Erro: " + e.getMessage());
         }
     }
 
-    public static void tentarEmprestimo(ContaCorrenteEmpresarial conta, double valor) {
-        try {
-            boolean resultado = conta.solicitaEmprestimo(valor);
-            if (resultado) {
-                System.out.println("Emprestimo aprovado.");
-                System.out.println(conta.exibeSaldo());
-            } else {
-                throw new MinhasExcecoes("Emprestimo nao aprovado.");
+    private static void menuContaCorrente(Scanner sc, ContaCorrente cc) throws MinhasExcecoes {
+        boolean operando = true;
+
+        while (operando) {
+            System.out.println("\n--- CONTA CORRENTE ---");
+            System.out.println("1- Sacar");
+            System.out.println("2- Depositar");
+            System.out.println("3- Ver saldo");
+            System.out.println("4- Ver limite cheque especial");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (cc.sacar(valor)) {
+                        System.out.println("✓ Saque realizado! " + cc.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    cc.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + cc.exibeSaldo());
+                    break;
+                case 3:
+                    System.out.println(cc.exibeSaldo());
+                    break;
+                case 4:
+                    System.out.println(cc.exibeLimiteChequeEspecial());
+                    break;
+                case 0:
+                    operando = false;
+                    break;
+                default:
+                    System.out.println("✗ Opção inválida!");
             }
-        } catch (MinhasExcecoes e) {
-            System.out.println("Erro: " + e.getMessage());
         }
     }
+
+    private static void menuContaCorrenteEmpresarial(Scanner sc, ContaCorrenteEmpresarial cce) throws MinhasExcecoes {
+        boolean operando = true;
+
+        while (operando) {
+            System.out.println("\n--- CONTA CORRENTE EMPRESARIAL ---");
+            System.out.println("1- Sacar");
+            System.out.println("2- Depositar");
+            System.out.println("3- Ver saldo");
+            System.out.println("4- Ver limite cheque especial");
+            System.out.println("5- Ver taxa administrativa");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (cce.sacar(valor)) {
+                        System.out.println("✓ Saque realizado! " + cce.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    cce.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + cce.exibeSaldo());
+                    break;
+                case 3:
+                    System.out.println(cce.exibeSaldo());
+                    break;
+                case 4:
+                    System.out.println(cce.exibeLimiteChequeEspecial());
+                    break;
+                case 5:
+                    System.out.println(cce.exibeTaxaJurosEmprestimo());
+                    break;
+                case 0:
+                    operando = false;
+                    break;
+                default:
+                    System.out.println("✗ Opção inválida!");
+            }
+        }
+    }
+
+    private static void menuContaCorrentePremium(Scanner sc, ContaCorrentePremium ccp) throws MinhasExcecoes {
+        boolean operando = true;
+
+        while (operando) {
+            System.out.println("\n--- CONTA CORRENTE PREMIUM ---");
+            System.out.println("1- Sacar (com cashback)");
+            System.out.println("2- Depositar");
+            System.out.println("3- Ver saldo");
+            System.out.println("4- Ver limite cheque especial");
+            System.out.println("5- Ver benefício premium");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (ccp.sacar(valor)) {
+                        System.out.println("✓ Saque realizado com cashback! " + ccp.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    ccp.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + ccp.exibeSaldo());
+                    break;
+                case 3:
+                    System.out.println(ccp.exibeSaldo());
+                    break;
+                case 4:
+                    System.out.println(ccp.exibeLimiteChequeEspecial());
+                    break;
+                case 5:
+                    System.out.println(ccp.exibeBeneficioPremium());
+                    break;
+                case 0:
+                    operando = false;
+                    break;
+                default:
+                    System.out.println("✗ Opção inválida!");
+            }
+        }
+    }
+
+    private static void menuContaPoupanca(Scanner sc, ContaPoupanca cp) throws MinhasExcecoes {
+        boolean operando = true;
+
+        while (operando) {
+            System.out.println("\n--- CONTA POUPANÇA ---");
+            System.out.println("1- Sacar");
+            System.out.println("2- Depositar");
+            System.out.println("3- Aplicar rendimento");
+            System.out.println("4- Ver saldo");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (cp.sacar(valor)) {
+                        System.out.println("✓ Saque realizado! " + cp.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    cp.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + cp.exibeSaldo());
+                    break;
+                case 3:
+                    cp.aplicarRendimento();
+                    System.out.println("✓ Rendimento aplicado! " + cp.exibeSaldo());
+                    break;
+                case 4:
+                    System.out.println(cp.exibeSaldo());
+                    break;
+                case 0:
+                    operando = false;
+                    break;
+                default:
+                    System.out.println("✗ Opção inválida!");
+            }
+        }
+    }
+
+    private static void menuContaPoupancaEstudantil(Scanner sc, ContaPoupancaEstudantil cpe) throws MinhasExcecoes {
+        boolean operando = true;
+
+        while (operando) {
+            System.out.println("\n--- CONTA POUPANÇA ESTUDANTIL ---");
+            System.out.println("1- Sacar");
+            System.out.println("2- Depositar");
+            System.out.println("3- Aplicar rendimento");
+            System.out.println("4- Ver saldo");
+            System.out.println("5- Ver desconto estudantil");
+            System.out.println("0- Voltar");
+            System.out.print("Escolha: ");
+            int op = sc.nextInt();
+
+            switch (op) {
+                case 1:
+                    System.out.print("Valor para sacar: ");
+                    double valor = sc.nextDouble();
+                    if (cpe.sacar(valor)) {
+                        System.out.println("✓ Saque realizado! " + cpe.exibeSaldo());
+                    } else {
+                        throw new MinhasExcecoes("Saldo insuficiente!");
+                    }
+                    break;
+                case 2:
+                    System.out.print("Valor para depositar: ");
+                    double deposito = sc.nextDouble();
+                    cpe.depositar(deposito);
+                    System.out.println("✓ Depósito realizado! " + cpe.exibeSaldo());
+                    break;
+                case 3:
+                    cpe.aplicarRendimento();
+                    System.out.println("✓ Rendimento aplicado! " + cpe.exibeSaldo());
+                    break;
+                case 4:
+                    System.out.println(cpe.exibeSaldo());
+                    break;
+                case 5:
+                    System.out.println(cpe.exibeLimiteIsencao());
+                    break;
+                case 0:
+                    operando = false;
+                    break;
+                default:
+                    System.out.println("✗ Opção inválida!");
+            }
+        }
+    }
+
 }

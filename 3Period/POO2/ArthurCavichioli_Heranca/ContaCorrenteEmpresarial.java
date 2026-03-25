@@ -1,12 +1,12 @@
 public class ContaCorrenteEmpresarial extends ContaCorrente {
-    private double taxaJurosEmprestimo;
+    private Double taxaJurosEmprestimo;
 
-    public ContaCorrenteEmpresarial(String titular, double saldo, double limiteChequeEspecial, double taxaJurosEmprestimo) {
+    public ContaCorrenteEmpresarial(String titular, Double saldo, Double limiteChequeEspecial, Double taxaJurosEmprestimo) {
         super(titular, saldo, limiteChequeEspecial);
         this.taxaJurosEmprestimo = taxaJurosEmprestimo;
     }
 
-    public boolean solicitaEmprestimo(double valor) {
+    public boolean solicitaEmprestimo(Double valor) {
         if (valor <= saldo + getLimiteChequeEspecial()) {
             saldo += valor;
             return true;

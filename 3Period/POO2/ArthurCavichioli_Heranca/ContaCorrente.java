@@ -1,13 +1,13 @@
 public class ContaCorrente extends ContaBancaria {
-    private double limiteChequeEspecial;
+    private Double limiteChequeEspecial;
 
-    public ContaCorrente(String titular, double saldo, double limiteChequeEspecial) {
+    public ContaCorrente(String titular, Double saldo, Double limiteChequeEspecial) {
         super(titular, saldo);
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
 
     @Override
-    public boolean sacar(double valor) {
+    public boolean sacar(Double valor) {
         if (saldo + limiteChequeEspecial >= valor) {
             saldo -= valor;
             return true;
