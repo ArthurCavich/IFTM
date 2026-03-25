@@ -1,0 +1,200 @@
+{
+  "info": {
+    "name": "API REST Contatos - Testes",
+    "description": "Coleção de testes para a API REST de Contatos baseada nos slides",
+    "version": "1.0.0"
+  },
+  "requests": [
+    {
+      "name": "1. Listar Todos os Contatos",
+      "method": "GET",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 10: GET /clientes - Listar todos os clientes",
+      "status": "200 OK",
+      "expectedResponse": [
+        {
+          "codigo": 1,
+          "nome": "Jonas"
+        },
+        {
+          "codigo": 2,
+          "nome": "Tadeu"
+        }
+      ]
+    },
+    {
+      "name": "2. Buscar um Contato Específico",
+      "method": "GET",
+      "url": "http://localhost:8080/api/contatos/1",
+      "description": "Slide 10: GET /clientes/1 - Buscar os detalhes do cliente",
+      "status": "200 OK",
+      "expectedResponse": {
+        "codigo": 1,
+        "nome": "Jonas"
+      }
+    },
+    {
+      "name": "3. Buscar Contato Inexistente (Erro 404)",
+      "method": "GET",
+      "url": "http://localhost:8080/api/contatos/999",
+      "description": "Slide 14: 404 Not Found",
+      "status": "404 Not Found",
+      "expectedResponse": {
+        "status": 404,
+        "mensagem": "Contato não encontrado com ID: 999"
+      }
+    },
+    {
+      "name": "4. Criar Novo Contato - Sucesso",
+      "method": "POST",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 25: POST para criar novo recurso",
+      "status": "201 Created",
+      "contentType": "application/json",
+      "body": {
+        "nome": "Maria Silva"
+      },
+      "expectedResponse": {
+        "codigo": 3,
+        "nome": "Maria Silva"
+      }
+    },
+    {
+      "name": "5. Criar Contato - Nome Vazio (Erro 400)",
+      "method": "POST",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 35: Validação de campo obrigatório",
+      "status": "400 Bad Request",
+      "contentType": "application/json",
+      "body": {
+        "nome": ""
+      },
+      "expectedResponse": {
+        "status": 400,
+        "mensagem": "Nome do contato não pode estar vazio!"
+      }
+    },
+    {
+      "name": "6. Criar Contato - Nome Nulo (Erro 400)",
+      "method": "POST",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 35: Validação de campo obrigatório",
+      "status": "400 Bad Request",
+      "contentType": "application/json",
+      "body": {
+        "nome": null
+      },
+      "expectedResponse": {
+        "status": 400,
+        "mensagem": "Nome do contato não pode estar vazio!"
+      }
+    },
+    {
+      "name": "7. Criar Contato - Nome Muito Longo (Erro 400)",
+      "method": "POST",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 35: Validação de comprimento máximo",
+      "status": "400 Bad Request",
+      "contentType": "application/json",
+      "body": {
+        "nome": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy"
+      },
+      "expectedResponse": {
+        "status": 400,
+        "mensagem": "Nome não pode ter mais de 100 caracteres!"
+      }
+    },
+    {
+      "name": "8. Criar Contato - Código Duplicado (Erro 409)",
+      "method": "POST",
+      "url": "http://localhost:8080/api/contatos",
+      "description": "Slide 29: 409 Conflict - Recurso já existe",
+      "status": "409 Conflict",
+      "contentType": "application/json",
+      "body": {
+        "codigo": 1,
+        "nome": "João Silva"
+      },
+      "expectedResponse": {
+        "status": 409,
+        "mensagem": "Já existe contato com código: 1"
+      }
+    },
+    {
+      "name": "9. Atualizar Contato - Sucesso",
+      "method": "PUT",
+      "url": "http://localhost:8080/api/contatos/1",
+      "description": "Slide 37: PUT para atualizar recurso",
+      "status": "200 OK",
+      "contentType": "application/json",
+      "body": {
+        "nome": "Jonas Atualizado"
+      },
+      "expectedResponse": {
+        "codigo": 1,
+        "nome": "Jonas Atualizado"
+      }
+    },
+    {
+      "name": "10. Atualizar Contato - Não Encontrado (Erro 404)",
+      "method": "PUT",
+      "url": "http://localhost:8080/api/contatos/999",
+      "description": "Slide 14: 404 Not Found",
+      "status": "404 Not Found",
+      "contentType": "application/json",
+      "body": {
+        "nome": "Alguém"
+      },
+      "expectedResponse": {
+        "status": 404,
+        "mensagem": "Contato não encontrado com ID: 999"
+      }
+    },
+    {
+      "name": "11. Atualizar Contato - Nome Vazio (Erro 400)",
+      "method": "PUT",
+      "url": "http://localhost:8080/api/contatos/1",
+      "description": "Slide 35: Validação na atualização",
+      "status": "400 Bad Request",
+      "contentType": "application/json",
+      "body": {
+        "nome": ""
+      },
+      "expectedResponse": {
+        "status": 400,
+        "mensagem": "Nome do contato não pode estar vazio!"
+      }
+    },
+    {
+      "name": "12. Deletar Contato - Sucesso",
+      "method": "DELETE",
+      "url": "http://localhost:8080/api/contatos/1",
+      "description": "Slide 42: DELETE para excluir recurso, retorna 204 No Content",
+      "status": "204 No Content",
+      "expectedResponse": null
+    },
+    {
+      "name": "13. Deletar Contato - Não Encontrado (Erro 404)",
+      "method": "DELETE",
+      "url": "http://localhost:8080/api/contatos/999",
+      "description": "Slide 14: 404 Not Found",
+      "status": "404 Not Found",
+      "expectedResponse": {
+        "status": 404,
+        "mensagem": "Contato não encontrado com ID: 999"
+      }
+    }
+  ],
+  "slides_reference": {
+    "slide_10": "GET /clientes - Listar todos os clientes; GET /clientes/1 - Buscar detalhes",
+    "slide_14": "404 Not Found - Recurso não encontrado",
+    "slide_25": "POST para criar novo recurso",
+    "slide_26": "201 Created - Criação bem-sucedida",
+    "slide_29": "409 Conflict - Recurso já existe",
+    "slide_31_34": "DTO - Padronizar respostas de erro",
+    "slide_35": "Validação de campos",
+    "slide_37": "PUT para atualizar recurso inteiro",
+    "slide_42": "DELETE para excluir; 204 No Content",
+    "slide_43": "Tabela de status codes"
+  }
+}
