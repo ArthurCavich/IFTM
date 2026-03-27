@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BootstrapApplication<bootstrap>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.professorangoti.bootstrap.BootstrapApplication",
+            "projectName": "bootstrap",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
