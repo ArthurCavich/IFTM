@@ -1,0 +1,214 @@
+   /* GERAIS (Configurações Globais) */
+
+   * {
+       box-sizing: border-box;
+       padding: 0;
+       margin: 0;
+   }
+
+   body {
+       font-family: "Eagle Lake", serif;
+       background-color: black;
+       color: white;
+       font-size: 20px;
+   }
+
+   /* HEADER (Cabeçalho) */
+
+   header {
+       background-color: #0b0b0b;
+       padding: 20px 0;
+       border-bottom: 2px solid #e50914; /* Linha de destaque vermelha estilo Netflix */
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra para destacar o cabeçalho */
+   }
+
+   .header-container {
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: 0 20px;
+       display: flex;
+       align-items: center;
+       gap: 15px;
+   }
+
+   .logo-texto {
+       font-size: 28px;
+       font-weight: bold;
+       color: #e50914; /* Vermelho TucFlix */
+       text-transform: uppercase;
+   }
+
+   .separador {
+       color: #444;
+       font-weight: 300;
+   }
+
+   .subtitulo {
+       font-size: 18px;
+       color: #aaa;
+
+       letter-spacing: 1px;
+   }
+
+   /* MAIN / CONTEÚDO*/
+
+   h1 {
+       text-align: center;
+       padding: 20px;
+   }
+
+   .grid-filmes {
+       display: grid;
+       grid-template-columns: repeat(4, 1fr); /* Voltando para 4 colunas para cartões maiores */
+       gap: 25px; /* Um espacinho a mais também na lateral */
+       padding: 20px;
+   }
+
+   /* Efeitos do Cartão do Filme */
+   .caixa-filme {
+       position: relative;
+       overflow: hidden; /* Garante que a imagem não vaze para fora nas bordas */
+       border-radius: 8px;
+       cursor: pointer;
+       transition: transform 0.3s ease;
+       background-color: #222;
+   }
+
+   .caixa-filme img {
+       width: 100%;
+       height: auto;
+       display: block; /* Remove os espaços em branco de imagens em linha */
+   }
+
+   .caixa-filme:hover {
+       transform: scale(1.05); /* Um pequeno zoom quando colocar o mouse no cartão como um todo */
+       z-index: 10;
+   }
+
+   .info-filme {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.88); /* Fundo preto semi-transparente um pouco mais escuro */
+       color: white;
+       padding: 20px;
+       opacity: 0; /* Invisível por padrão */
+       transition: opacity 0.3s ease; /* Transição suave */
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-start; /* Alterado de center para start para textos grandes não bugarem */
+       text-align: left;
+       font-family: Arial, sans-serif; /* Fonte mais limpa para textos longos */
+       font-size: 14px; /* Aumentei a fonte em 1px */
+       overflow-y: auto; /* Se o texto ainda for gigante, cria uma rodinha de scroll */
+   }
+
+   .caixa-filme:hover .info-filme {
+       opacity: 1; /* Aparece no hover! */
+   }
+
+   .info-filme h2 {
+       font-family: "Eagle Lake", serif;
+       font-size: 16px;
+       margin-bottom: 12px; /* Mais espaço abaixo do título */
+       color: #e50914;
+       text-align: center;
+   }
+
+   .info-filme p {
+       margin-bottom: 8px; /* Mais espaço entre os parágrafos de dados */
+       line-height: 1.4;   /* Aumenta a altura da linha para respiro dentro de um mesmo parágrafo */
+   }
+
+   /* Ajusta o estilo da sinopse apenas para ter uma quebra bonita do título técnicos */
+   .info-filme .sinopse {
+       margin-bottom: 12px; /* Destaca a sinopse dos dados técnicos */
+       text-align: justify; /* Deixa o bloco de texto retinho nas laterais */
+   }
+
+   /* Personalizando sutilmente a barra de rolagem do card para não ficar feia */
+   .info-filme::-webkit-scrollbar {
+       width: 6px;
+   }
+   .info-filme::-webkit-scrollbar-thumb {
+       background: #e50914; 
+       border-radius: 4px;
+   }
+
+   .container-botao {
+       text-align: center;
+       margin: 30px 0;
+   }
+
+   .btn-primary {
+       background-color: #e50914;
+       /* Vermelho estilo Netflix */
+       color: #ffffff;
+       border: none;
+       padding: 12px 24px;
+       font-size: 18px;
+       font-family: inherit;
+       border-radius: 4px;
+       cursor: pointer;
+       transition: background-color 0.2s, transform 0.1s;
+   }
+
+   .btn-primary:hover {
+       background-color: #f40612;
+       transform: scale(1.05);
+       /* Pequeno efeito de zoom */
+   }
+
+   .btn-primary:active {
+       transform: scale(0.95);
+   }
+
+   /* FOOTER (Rodapé) */
+
+   footer {
+       padding: 30px 20px;
+       margin-top: 20px;
+       border-top: 1px solid #333;
+   }
+
+   .footer-container {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       max-width: 1200px;
+       /* Limita a largura pra não grudar nas bordas em telas muito grandes */
+       margin: 0 auto;
+       /* Centraliza o container */
+   }
+
+   .footer-esq {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 10px;
+   }
+
+   .footer-dir {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-end;
+       gap: 10px;
+       text-align: right;
+   }
+
+   .footer-esq p,
+   .footer-dir p {
+       font-size: 0.7em;
+       color: #999;
+   }
+
+   footer a img[alt="GitHub"] {
+       filter: invert(1);
+       transition: transform 0.2s ease;
+   }
+
+   footer a img[alt="GitHub"]:hover {
+       transform: scale(1.2);
+   }
