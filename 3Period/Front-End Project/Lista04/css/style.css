@@ -101,7 +101,7 @@
        justify-content: flex-start; /* Alterado de center para start para textos grandes não bugarem */
        text-align: left;
        font-family: Arial, sans-serif; /* Fonte mais limpa para textos longos */
-       font-size: 14px; /* Aumentei a fonte em 1px */
+       font-size: 16px; /* Aumentado para melhor leitura dos dados */
        overflow-y: auto; /* Se o texto ainda for gigante, cria uma rodinha de scroll */
    }
 
@@ -111,7 +111,7 @@
 
    .info-filme h2 {
        font-family: "Eagle Lake", serif;
-       font-size: 16px;
+       font-size: 20px; /* Título também um pouco maior para manter o destaque */
        margin-bottom: 12px; /* Mais espaço abaixo do título */
        color: #e50914;
        text-align: center;
