@@ -138,7 +138,10 @@
    }
 
    .container-botao {
-       text-align: center;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 15px;
        margin: 30px 0;
    }
 
@@ -162,6 +165,28 @@
    }
 
    .btn-primary:active {
+       transform: scale(0.95);
+   }
+
+   .btn-secundario {
+       background-color: #333;
+       color: #ffffff;
+       border: none;
+       padding: 10px 14px;
+       border-radius: 4px;
+       cursor: pointer;
+       transition: background-color 0.2s, transform 0.1s;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .btn-secundario:hover {
+       background-color: #555;
+       transform: scale(1.05);
+   }
+
+   .btn-secundario:active {
        transform: scale(0.95);
    }
 
