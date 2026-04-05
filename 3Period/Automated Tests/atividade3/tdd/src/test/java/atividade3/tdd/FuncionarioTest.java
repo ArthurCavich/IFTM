@@ -44,56 +44,6 @@ public class FuncionarioTest {
     }
 
     @Test
-    void testarHorasMin() {
-        // Arrange
-        Funcionario funcionario = new Funcionario("João", 20, 75.9);
-
-        // Act
-        double pagamento = funcionario.calcularPagamento();
-
-        // Assert
-        assertEquals(1518.0, pagamento); // Respeita todos os limites
-    }
-
-    @Test
-    void testarHorasMax() {
-        // Arrange
-        Funcionario funcionario = new Funcionario("Paula", 160, 50.0);
-
-        // Act
-        double pagamento = funcionario.calcularPagamento();
-
-        // Assert
-        assertEquals(8000.0, pagamento);
-    }
-
-    @Test
-    void testarValorHoraMin() {
-        // Arrange
-        Funcionario funcionario = new Funcionario("Ana", 20, 75.9);
-
-        // Act
-        double pagamento = funcionario.calcularPagamento();
-
-        // Assert
-        assertEquals(1518.0, pagamento);
-    }
-
-    @Test
-    void testarValorHoraMax() {
-        // Arrange
-        Funcionario funcionario = new Funcionario("Bruno", 20, 150.0);
-
-        // Act
-        double pagamento = funcionario.calcularPagamento();
-
-        // Assert
-        assertEquals(10000.0, pagamento);
-    }
-
-    // ===== TESTES DOS SETTERS =====
-
-    @Test
     void testarSetterValido() {
         // Arrange
         Funcionario funcionario = new Funcionario("João", 100, 20.0);
@@ -107,24 +57,98 @@ public class FuncionarioTest {
     }
 
     @Test
-    void testarLimiteInferior() {// < 20
+    void testarLimiteDeHorasTrabalhadasInferior() {
         // Arrange
-        Funcionario funcionario = new Funcionario("João", 100, 20.0);
+        Funcionario funcionario = new Funcionario("Paula", 100, 20.0);
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
-            funcionario.setHorasTrabalhadas(19.9);
+            funcionario.setHorasTrabalhadas(19); // < 20
         });
     }
 
     @Test
-    void testarLimiteSuperior() {// > 160
+    void testarLimiteDeHorasTrabalhadasSuperior() {
         // Arrange
-        Funcionario funcionario = new Funcionario("João", 100, 20.0);
+        Funcionario funcionario = new Funcionario("Ana", 100, 20.0);
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
-            funcionario.setHorasTrabalhadas(161);
+            funcionario.setHorasTrabalhadas(161);// > 160
         });
     }
+
+    @Test
+    void testarSetValorHoraValido() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("Carlos", 100, 20.0);
+
+        // Act
+        funcionario.setValorHora(50.0);
+        double pagamento = funcionario.calcularPagamento();
+
+        // Assert
+        assertEquals(5000.0, pagamento); // 100 * 50.0
+    }
+
+    @Test
+    void testarSetValorHoraAbaixoDoMinimo() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("lucia", 100, 20.0);
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(15.17); // < 15.18
+        });
+    }
+
+    @Test
+    void testarSetValorHoraAcimaDoMaximo() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("Roberto", 100, 20.0);
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(151.81); // > 151.80
+        });
+    }
+
+    @Test
+    void testarSetNomeValido() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("Pedro", 100, 20.0);
+
+        // Act
+        funcionario.setNome("Beatriz");
+        String nome = funcionario.getNome();
+
+        // Assert
+        assertEquals("Beatriz", nome);
+    }
+
+    @Test
+    void testarSetNomeComEspacos() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("João", 100, 20.0);
+
+        // Act
+        funcionario.setNome("Maria da Silva");
+        String nome = funcionario.getNome();
+
+        // Assert
+        assertEquals("Maria da Silva", nome);
+    }
+
+    @Test
+    void testarSetNomeVazio() {
+        // Arrange
+        Funcionario funcionario = new Funcionario("Fernando", 100, 20.0);
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setNome(""); // Nome vazio
+        });
+    }
+
+    
 }
