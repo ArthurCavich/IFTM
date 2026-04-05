@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TddApplication<tdd>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "atividade3.tdd.TddApplication",
+            "projectName": "tdd",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
