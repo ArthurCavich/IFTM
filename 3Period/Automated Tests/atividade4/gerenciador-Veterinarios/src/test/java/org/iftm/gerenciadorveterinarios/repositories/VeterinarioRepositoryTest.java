@@ -1,14 +1,11 @@
-package com.cod3r.gerenciadorfuncionarios.repositories;
+package org.iftm.gerenciadorveterinarios.repositories;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.util.List;
 import java.util.Optional;
 
 import org.iftm.gerenciadorveterinarios.entities.Veterinario;
-import org.iftm.gerenciadorveterinarios.repositories.VeterinarioRepository;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
