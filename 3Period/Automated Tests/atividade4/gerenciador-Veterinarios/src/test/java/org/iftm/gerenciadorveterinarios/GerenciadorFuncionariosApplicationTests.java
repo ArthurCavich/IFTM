@@ -6,9 +6,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = GerenciadorVeterinariosApplication.class)
 class GerenciadorFuncionariosApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
 }

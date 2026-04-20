@@ -13,7 +13,8 @@
     <name>gerenciador-veterinarios</name>
     <description>gerencia veterinários</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
     <dependencies>
         <dependency>
