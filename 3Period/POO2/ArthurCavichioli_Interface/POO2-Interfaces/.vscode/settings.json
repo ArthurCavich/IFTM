@@ -1,0 +1,16 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [],
+    "java.jdt.ls.java.home": "C:\\Users\\arthu\\AppData\\Local\\Programs\\Eclipse Adoptium\\jdk-21.0.7.6-hotspot",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\Users\\arthu\\AppData\\Local\\Programs\\Eclipse Adoptium\\jdk-21.0.7.6-hotspot",
+            "default": true
+        }
+    ],
+    "code-runner.runInTerminal": true
+}
