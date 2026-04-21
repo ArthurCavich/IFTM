@@ -11,9 +11,11 @@
     /* grid-template-columns: 200px 200px 200px 200px; */
     grid-template-columns: 1fr;
     gap: 10px;
+
 }
 
 .card {
+    border: solid black 2px;
     padding: 10px;
     border-radius: 10px;
 }
