@@ -11,15 +11,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "clientes")
+@Table(name="clientes")
 @Data
 @NoArgsConstructor
-
 public class Cliente {
 
     @Id
-    @Column(name="ClienteID", nullable=false, columnDefinition="CHAR(5)")
+    @Column(name="ClienteID",nullable=false,columnDefinition="CHAR(5)")
     private String id;
+
+    private String nome;
 
     private String cargo;
 
@@ -33,10 +34,11 @@ public class Cliente {
 
     private String telefone;
 
-    @Column(name="Fax")
+    @Column(name="fax")
     private String fax;
 
     @OneToMany(mappedBy="cliente")
-    private List <Pedido> pedidos;
+    private List<Pedido> pedidos;
+    
 
 }

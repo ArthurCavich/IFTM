@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @Data
 @NoArgsConstructor
-
 public class DetalhePedidoID {
+
     @Column(name = "PedidoID")
     private Integer pedidoId;
 
     @Column(name = "ProdutoID")
     private Integer produtoId;
+
 }
