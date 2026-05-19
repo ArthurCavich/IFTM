@@ -132,7 +132,7 @@ class FuncionarioTest {
     @Test
     void testarModificarValorPorHoraComValoresValidosGeraPagamentoAbaixoLimiteGeraErro() {
         // Arrange
-        funcionario.setHorasTrabalhadas(5);
+        funcionario = new Funcionario("Maria", 5, 76.0);
         String mensagemEsperada = "O pagamento não pode ser inferior a R$ 1.518,00.";
 
         // Act
