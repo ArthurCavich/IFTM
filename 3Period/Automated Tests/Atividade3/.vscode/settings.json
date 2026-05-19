@@ -1,5 +1,3 @@
 {
-    "java.import.maven.enabled": true,
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.server.launchMode": "Standard"
+    "java.compile.nullAnalysis.mode": "automatic"
 }
