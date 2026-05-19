@@ -1,11 +1,13 @@
 package atividade3.tdd;
 
 public class FuncionarioTerceirizado extends Funcionario {
+    private static final double DESPESA_MAXIMA = 1000.0;
+
     private double despesasAdicionais;
 
     public FuncionarioTerceirizado(String nome, int horasTrabalhadas, double valorHora, double despesasAdicionais) {
         super(nome, horasTrabalhadas, valorHora);
-        this.despesasAdicionais = despesasAdicionais;
+        this.despesasAdicionais = validaDespesasAdicionais(despesasAdicionais);
     }
 
     public double getDespesasAdicionais() {
@@ -13,38 +15,26 @@ public class FuncionarioTerceirizado extends Funcionario {
     }
 
     public void setDespesasAdicionais(double despesasAdicionais) {
-        // Valida se está entre 0 e 1000
-        if (despesasAdicionais < 0 || despesasAdicionais > 1000) {
-            throw new IllegalArgumentException("Despesa adicional deve estar entre 0 e 1000");
-        }
-        
-        // Calcula o que seria o pagamento com essa despesa
-        double pagamentoBase = super.calcularPagamento();
-        double bonus = despesasAdicionais * 1.1; // 110% da despesa
-        double pagamentoTotal = pagamentoBase + bonus;
-        
-        // Verifica se ultrapassa o máximo de 10000
-        if (pagamentoTotal > 10000.0) {
-            throw new IllegalArgumentException("Despesa adicional causaria pagamento acima do limite de 10000");
-        }
-        
-        this.despesasAdicionais = despesasAdicionais;
+        this.despesasAdicionais = validaDespesasAdicionais(despesasAdicionais);
     }
 
     @Override
     public double calcularPagamento() {
-        // Pagamento base (horas * valor/hora + limites)
-        double pagamentoBase = super.calcularPagamento();
-        
-        // Bônus de 110% da despesa adicional
-        double bonus = despesasAdicionais * 1.1;
-        double total = pagamentoBase + bonus;
-        
-        // Respeita o limite máximo de 10000
-        if (total > 10000.0) {
-            return 10000.0;
+        return calcularPagamentoComDespesa(despesasAdicionais);
+    }
+
+    private double validaDespesasAdicionais(double despesasAdicionais) {
+        if (despesasAdicionais < 0) {
+            throw new IllegalArgumentException("As despesas adicionais não podem ser inferiores a R$ 0,00.");
         }
-        
-        return total;
+        if (despesasAdicionais > DESPESA_MAXIMA) {
+            throw new IllegalArgumentException("As despesas adicionais não podem ser superiores a R$ 1.000,00.");
+        }
+        validaPagamento(calcularPagamentoComDespesa(despesasAdicionais));
+        return despesasAdicionais;
+    }
+
+    private double calcularPagamentoComDespesa(double despesasAdicionais) {
+        return super.calcularPagamento() + (despesasAdicionais * 1.1);
     }
 }
