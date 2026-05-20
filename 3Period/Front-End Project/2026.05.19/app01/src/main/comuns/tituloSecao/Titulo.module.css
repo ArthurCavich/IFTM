@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap');
+
+.tituloSecao {
+    color: blue;
+}
+
+subtitulo{
+    color: black;
+}
+
+.subtitulo, .tituloSecao {
+    font-family: 'Dancing Script', cursive;
+    padding: 5px;
+    text-align: center;
+}
