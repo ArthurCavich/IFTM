@@ -1,21 +1,13 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "ECommerceApplication",
+            "name": "Spring Boot - ECommerce (Maven)",
             "request": "launch",
+            "cwd": "${workspaceFolder}/ProjetoBackEndMonolticoORM2026-main/e-commerce",
             "mainClass": "br.edu.iftm.tspi.pbackorm.e_commerce.ECommerceApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-ECommerceApplication<e-commerce>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "br.edu.iftm.tspi.pbackorm.e_commerce.ECommerceApplication",
-            "projectName": "e-commerce",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "projectName": "e-commerce"
         }
     ]
 }

@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "spring-boot:run",
+            "type": "shell",
+            "command": ".\\mvnw.cmd spring-boot:run",
+            "options": {
+                "cwd": "${workspaceFolder}/ProjetoBackEndMonolticoORM2026-main/e-commerce"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

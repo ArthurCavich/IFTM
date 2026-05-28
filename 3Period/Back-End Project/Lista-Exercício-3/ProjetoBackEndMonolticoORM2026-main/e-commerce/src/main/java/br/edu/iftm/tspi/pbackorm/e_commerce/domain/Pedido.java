@@ -18,26 +18,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="pedidos")
+@Table(name = "pedidos")
 @Data
 @NoArgsConstructor
 public class Pedido {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="PedidoID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PedidoID")
     private Integer id;
 
-    @Column(name="datapedido")
+    @Column(name = "datapedido")
     private LocalDateTime dataPedido;
 
     @ManyToOne
-    @JoinColumn(name="ClienteID",nullable=false)
+    @JoinColumn(name = "ClienteID", nullable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy="pedido",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalhePedido> detalhesPedido;
-    
-
-
 }

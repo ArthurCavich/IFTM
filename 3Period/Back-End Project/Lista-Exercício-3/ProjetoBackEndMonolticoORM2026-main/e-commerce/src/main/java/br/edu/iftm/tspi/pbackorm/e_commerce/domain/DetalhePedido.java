@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="detalhes_pedido")
+@Table(name = "detalhes_pedido")
 @Data
 @NoArgsConstructor
 public class DetalhePedido {
@@ -21,20 +21,20 @@ public class DetalhePedido {
 
     @ManyToOne
     @MapsId("pedidoId")
-    @JoinColumn(name="PedidoID",nullable=false)
+    @JoinColumn(name = "PedidoID", nullable = false)
     private Pedido pedido;
 
     @ManyToOne
     @MapsId("produtoId")
-    @JoinColumn(name="ProdutoID",nullable=false)
+    @JoinColumn(name = "ProdutoID", nullable = false)
     private Produto produto;
 
-    @Column(name="precovenda")
+    @Column(name = "precovenda")
     private Double precoVenda;
 
-    @Column(name="quantidade")
+    @Column(name = "quantidade")
     private Short quantidade;
 
-    @Column(name="desconto")
+    @Column(name = "desconto")
     private Double desconto;
 }
