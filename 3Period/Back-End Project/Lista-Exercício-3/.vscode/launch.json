@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ECommerceApplication",
+            "request": "launch",
+            "mainClass": "br.edu.iftm.tspi.pbackorm.e_commerce.ECommerceApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ECommerceApplication<e-commerce>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
