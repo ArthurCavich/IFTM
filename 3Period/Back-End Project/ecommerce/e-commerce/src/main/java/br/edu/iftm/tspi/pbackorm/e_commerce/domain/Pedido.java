@@ -38,6 +38,8 @@ public class Pedido {
     @OneToMany(mappedBy="pedido",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
     private List<DetalhePedido> detalhesPedido;
     
-
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "categoriaID", nullable=false)
+    private Categoria categoria;
 
 }
