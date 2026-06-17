@@ -11,6 +11,7 @@ export default function Animacao({nomeClasse, delay}) {
             delay: delay
         });
     }, []);
+    
 
     return (
 
