@@ -20,6 +20,7 @@ import br.edu.iftm.tspi.pbackorm.e_commerce.dto.ProdutoDTO;
 import br.edu.iftm.tspi.pbackorm.e_commerce.dto.mapper.CategoriaMapper;
 import br.edu.iftm.tspi.pbackorm.e_commerce.dto.mapper.ProdutoMapper;
 import br.edu.iftm.tspi.pbackorm.e_commerce.repository.CategoriaRepository;
+import br.edu.iftm.tspi.pbackorm.e_commerce.repository.ProdutoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,8 @@ public class CategoriaController {
     private final CategoriaMapper mapper;
 
     private final ProdutoMapper mapperProdutos;
+
+    private final ProdutoRepository produtoRepository;
 
     @GetMapping
     public List<CategoriaDTO> listar(@RequestParam(required = false) String nome) {
@@ -82,6 +85,15 @@ public class CategoriaController {
         
         Categoria categoriaAtualizada = repository.save(categoriaAtualizar);
         return ResponseEntity.ok(mapper.toDto(categoriaAtualizada));
+    }
+
+    @GetMapping("/{id}/total-consumido")
+    public ResponseEntity<Double> totalConsumido(@PathVariable Integer id) {
+        if (!repository.existsById(id)) {
+            throw new EntityNotFoundException("Categoria de ID "+id+" não encontrado");
+        }
+        Double total = produtoRepository.totalConsumidoPorCategoria(id);
+        return ResponseEntity.ok(total == null ? 0.0 : total);
     }
 
     @DeleteMapping("/{id}")
