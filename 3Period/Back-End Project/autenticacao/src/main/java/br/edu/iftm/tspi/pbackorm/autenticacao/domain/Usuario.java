@@ -1,7 +1,13 @@
 package br.edu.iftm.tspi.pbackorm.autenticacao.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,5 +20,13 @@ public class Usuario {
     private String login;
 
     private String senha;
+
+    @ManyToMany
+    @JoinTable(
+        name = "usuario_role",
+        joinColumns = @JoinColumn(name = "usuario_login"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
 
 }

@@ -1,9 +1,9 @@
 package br.edu.iftm.tspi.pbackorm.autenticacao.security;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.edu.iftm.tspi.pbackorm.autenticacao.domain.Usuario;
@@ -26,7 +26,11 @@ public class UsuarioAutenticado implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "read");
+        return usuario.getRoles()
+                .stream()
+                .flatMap(role -> role.getPermissoes().stream())
+                .map(permissao -> new SimpleGrantedAuthority(permissao.getNome()))
+                .toList();
     }
 
 }
