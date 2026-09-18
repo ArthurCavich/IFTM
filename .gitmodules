@@ -1,0 +1,3 @@
+[submodule "4Period/Mobile-Devices/cart"]
+	path = 4Period/Mobile-Devices/cart
+	url = https://github.com/angoti/cart.git
