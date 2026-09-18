@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap');
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--color-text);
+}
+
+:root {
+    /* Espaçamentos */
+    --internal-space: 10px;
+
+    /* Espaçamentos */
+    --space-0: 0px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 80px;
+    --space-10: 96px;
+
+    /* Layout */
+    --max-width-container: 1250px;
+    --border-main-title: 25px;
+    --border-box: 10px;
+
+    /* Cores */
+    --bg-emphasis: rgb(241, 241, 241);
+    --color-text: #152660;
+
+    /* --color-text: blue; */
+    --color-buttons: #AF872D;
+
+    /* Tamanho das fontes*/
+    --font-subtitle2: 28px;
+    --font-paragraph: 16px;
+}
+
+body p {
+    font-size:var(--font-paragraph);
+}
+
+.container {
+    max-width: var(--max-width-container);
+    margin: auto;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0px;
+}
+
+.card {
+}
+
+section img {
+    width: 30px;
+    margin: auto;
+}
+
+.card h3, .card h3 + p {
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 30px;
+}
+
+.card h3 + p {
+}
+
+.card p {
+}
+
+.card summary {
+}
+
+.card details ul {
+    margin-left: 0;
+}
+
+.card details ul li {
+}
