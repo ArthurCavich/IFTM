@@ -73,8 +73,26 @@ export default function TelaEventos() {
 
     // Executa esta função quando o usuário se inscreve em um evento.
     function inscrever(evento) {
-        // Cria um novo array para o React detectar a alteração imediatamente.
-        setInscricoes([...inscricoes, evento]);
+        // Verifica se o usuário já está inscrito nesse evento.
+        const jaInscrito = inscricoes.some(
+            (inscricao) => inscricao.id === evento.id
+        );
+
+        // Impede que o mesmo evento seja adicionado novamente.
+        if (jaInscrito) {
+            return;
+        }
+
+        // Usa o estado mais atual e cria um novo array sem mutar o anterior.
+        setInscricoes((inscricoesAtuais) => {
+            // Confere novamente dentro do setter para tratar toques muito rápidos.
+            if (inscricoesAtuais.some((inscricao) => inscricao.id === evento.id)) {
+                return inscricoesAtuais;
+            }
+
+            // Adiciona o evento somente quando ele ainda não está inscrito.
+            return [...inscricoesAtuais, evento];
+        });
 
         // Guarda o evento que acabou de receber a inscrição.
         setEventoSelecionado(evento);
