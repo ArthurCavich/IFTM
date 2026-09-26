@@ -40,13 +40,18 @@ export default function TelaEventos() {
     // Guarda o texto digitado no campo de busca.
     const [busca, setBusca] = useState('');
 
-    // Guarda o evento usado na mensagem de confirmação.
-    const [eventoSelecionado, setEventoSelecionado] = useState(null);
+    // Guarda somente o id do evento usado na mensagem de confirmação.
+    const [eventoSelecionadoId, setEventoSelecionadoId] = useState(null);
 
     // Calcula a lista filtrada durante a renderização.
     // Como ela depende de eventos e busca, não precisa ser guardada em estado.
     const eventosFiltrados = eventos.filter((evento) =>
         evento.titulo.toLowerCase().includes(busca.toLowerCase())
+    );
+
+    // Localiza o evento selecionado a partir da fonte principal dos eventos.
+    const eventoSelecionado = eventos.find(
+        (evento) => evento.id === eventoSelecionadoId
     );
 
     // Calcula o total diretamente a partir da lista de inscrições.
@@ -94,8 +99,8 @@ export default function TelaEventos() {
             return [...inscricoesAtuais, evento];
         });
 
-        // Guarda o evento que acabou de receber a inscrição.
-        setEventoSelecionado(evento);
+        // Guarda somente o id, evitando duplicar o objeto inteiro no estado.
+        setEventoSelecionadoId(evento.id);
 
         // Ativa a mensagem de confirmação.
         setEnviado(true);
@@ -148,7 +153,7 @@ export default function TelaEventos() {
                         aoAbrir={() =>
                             router.push({
                                 pathname: '/detalhe',
-                                params: { evento: JSON.stringify(item) },
+                                params: { id: String(item.id) },
                             })}
                     />
                 )}
