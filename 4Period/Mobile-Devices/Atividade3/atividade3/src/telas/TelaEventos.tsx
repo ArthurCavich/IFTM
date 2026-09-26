@@ -1,6 +1,6 @@
 // Importa o hook para acessar dados compartilhados entre telas.
 import { useRouter } from 'expo-router';
-import { useContext, useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 // Importa os componentes visuais usados nesta tela.
 import {
@@ -14,9 +14,9 @@ import {
 // Importa o componente que desenha cada evento da lista.
 import CartaoEvento from '../componentes/CartaoEvento';
 
-// Importa o contexto global da aplicação.
-import { AppContexto } from '../contextos/AppContexto';
+// Importa o contexto específico do tema.
 import { useInscricoes } from '../contextos/InscricoesContexto';
+import { useTema } from '../contextos/TemaContexto';
 
 // Importa a máquina de estados responsável pela busca dos eventos.
 import {
@@ -27,7 +27,7 @@ import {
 // Declara o componente principal da tela de eventos.
 export default function TelaEventos() {
     // Obtém do contexto o tema e as inscrições atuais.
-    const { temaEscuro } = useContext(AppContexto);
+    const { temaEscuro } = useTema();
     const { inscricoesIds, inscrever: adicionarInscricao } = useInscricoes();
 
     // Obtém o controlador de navegação do Expo Router.
