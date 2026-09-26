@@ -1,6 +1,6 @@
 // Importa o hook para acessar dados compartilhados entre telas.
 import { useRouter } from 'expo-router';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useReducer, useState } from 'react';
 
 // Importa os componentes visuais usados nesta tela.
 import {
@@ -17,6 +17,12 @@ import CartaoEvento from '../componentes/CartaoEvento';
 // Importa o contexto global da aplicação.
 import { AppContexto } from '../contextos/AppContexto';
 
+// Importa a máquina de estados responsável pela busca dos eventos.
+import {
+    estadoInicialEventos,
+    eventosReducer,
+} from '../redutores/eventosReducer';
+
 // Declara o componente principal da tela de eventos.
 export default function TelaEventos() {
     // Obtém do contexto o tema e as inscrições atuais.
@@ -25,17 +31,14 @@ export default function TelaEventos() {
     // Obtém o controlador de navegação do Expo Router.
     const router = useRouter();
 
-    // Guarda a lista completa de eventos recebida da API.
-    const [eventos, setEventos] = useState([]);
+    // Controla carregamento, sucesso, eventos e falha em um único estado.
+    const [estadoEventos, dispatch] = useReducer(
+        eventosReducer,
+        estadoInicialEventos
+    );
 
-    // Controla a exibição do indicador de carregamento.
-    const [carregando, setCarregando] = useState(true);
-
-    // Guarda uma possível mensagem de erro da requisição.
-    const [erro, setErro] = useState(null);
-
-    // Indica se uma inscrição foi enviada.
-    const [enviado, setEnviado] = useState(false);
+    // Extrai os dados atuais da máquina de estados.
+    const { status, eventos, erro } = estadoEventos;
 
     // Guarda o texto digitado no campo de busca.
     const [busca, setBusca] = useState('');
@@ -60,18 +63,27 @@ export default function TelaEventos() {
 
     // Executa a busca dos eventos uma vez, quando a tela é montada.
     useEffect(() => {
+        // Informa ao redutor que a busca começou.
+        dispatch({ type: 'CARREGANDO' });
+
         // Faz uma requisição para obter os eventos disponíveis.
         fetch('https://api.campus.iftm.edu.br/eventos')
+            // Trata respostas HTTP que representam erro.
+            .then((resposta) => {
+                if (!resposta.ok) {
+                    throw new Error(`HTTP ${resposta.status}`);
+                }
+
+                return resposta.json();
+            })
             // Converte a resposta para JSON.
-            .then((resposta) => resposta.json())
             // Atualiza a tela com os dados recebidos.
             .then((dados) => {
-                setEventos(dados);
-                setCarregando(false);
+                dispatch({ type: 'SUCESSO', eventos: dados });
             })
             // Guarda a mensagem caso a requisição falhe.
             .catch((e) => {
-                setErro(e.message);
+                dispatch({ type: 'FALHA', erro: e.message });
             });
         // O array vazio faz este efeito executar apenas uma vez.
     }, []);
@@ -103,7 +115,6 @@ export default function TelaEventos() {
         setEventoSelecionadoId(evento.id);
 
         // Ativa a mensagem de confirmação.
-        setEnviado(true);
     }
 
     // Mostra no console toda vez que a tela é renderizada.
@@ -126,13 +137,15 @@ export default function TelaEventos() {
             />
 
             {/* Mostra o carregamento enquanto os eventos são buscados. */}
-            {carregando && <ActivityIndicator size="large" />}
+            {status === 'carregando' && <ActivityIndicator size="large" />}
 
             {/* Mostra o erro caso a busca dos eventos falhe. */}
-            {erro && <Text style={styles.erro}>Falha: {erro}</Text>}
+            {status === 'falha' && erro && (
+                <Text style={styles.erro}>Falha: {erro}</Text>
+            )}
 
             {/* Mostra a confirmação depois de uma inscrição. */}
-            {enviado && eventoSelecionado && (
+            {eventoSelecionado && (
                 <Text style={styles.aviso}>
                     Inscrição confirmada em {eventoSelecionado.titulo}
                 </Text>
