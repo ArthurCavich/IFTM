@@ -16,6 +16,7 @@ import CartaoEvento from '../componentes/CartaoEvento';
 
 // Importa o contexto global da aplicação.
 import { AppContexto } from '../contextos/AppContexto';
+import { useInscricoes } from '../contextos/InscricoesContexto';
 
 // Importa a máquina de estados responsável pela busca dos eventos.
 import {
@@ -26,7 +27,8 @@ import {
 // Declara o componente principal da tela de eventos.
 export default function TelaEventos() {
     // Obtém do contexto o tema e as inscrições atuais.
-    const { temaEscuro, inscricoes, setInscricoes } = useContext(AppContexto);
+    const { temaEscuro } = useContext(AppContexto);
+    const { inscricoesIds, inscrever: adicionarInscricao } = useInscricoes();
 
     // Obtém o controlador de navegação do Expo Router.
     const router = useRouter();
@@ -59,7 +61,7 @@ export default function TelaEventos() {
 
     // Calcula o total diretamente a partir da lista de inscrições.
     // Isso evita manter um segundo estado com a mesma informação.
-    const totalInscricoes = inscricoes.length;
+    const totalInscricoes = inscricoesIds.length;
 
     // Executa a busca dos eventos uma vez, quando a tela é montada.
     useEffect(() => {
@@ -101,25 +103,15 @@ export default function TelaEventos() {
     // Executa esta função quando o usuário se inscreve em um evento.
     function inscrever(evento) {
         // Verifica se o usuário já está inscrito nesse evento.
-        const jaInscrito = inscricoes.some(
-            (inscricao) => inscricao.id === evento.id
-        );
+        const jaInscrito = inscricoesIds.includes(evento.id);
 
         // Impede que o mesmo evento seja adicionado novamente.
         if (jaInscrito) {
             return;
         }
 
-        // Usa o estado mais atual e cria um novo array sem mutar o anterior.
-        setInscricoes((inscricoesAtuais) => {
-            // Confere novamente dentro do setter para tratar toques muito rápidos.
-            if (inscricoesAtuais.some((inscricao) => inscricao.id === evento.id)) {
-                return inscricoesAtuais;
-            }
-
-            // Adiciona o evento somente quando ele ainda não está inscrito.
-            return [...inscricoesAtuais, evento];
-        });
+        // O contexto guarda somente o identificador da inscrição.
+        adicionarInscricao(evento.id);
 
         // Guarda somente o id, evitando duplicar o objeto inteiro no estado.
         setEventoSelecionadoId(evento.id);

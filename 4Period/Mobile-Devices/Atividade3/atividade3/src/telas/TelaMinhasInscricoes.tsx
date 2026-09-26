@@ -1,12 +1,32 @@
-import { useState } from 'react';
-import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
+import { useInscricoes } from '../contextos/InscricoesContexto';
 
 export default function TelaMinhasInscricoes() {
-    const [inscricoes, setInscricoes] = useState([]);
+    const { inscricoesIds, cancelar } = useInscricoes();
+    const [eventos, setEventos] = useState([]);
 
-    function cancelar(id) {
-        setInscricoes(inscricoes.filter((i) => i.id !== id));
-    }
+    useEffect(() => {
+        const controlador = new AbortController();
+
+        fetch('https://api.campus.iftm.edu.br/eventos', {
+            signal: controlador.signal,
+        })
+            .then((resposta) => resposta.json())
+            .then((dados) => setEventos(dados))
+            .catch((e) => {
+                if (e.name !== 'AbortError') {
+                    console.error('[inscricoes] Falha ao buscar eventos', e);
+                }
+            });
+
+        return () => controlador.abort();
+    }, []);
+
+    // Deriva os eventos exibidos a partir dos ids compartilhados.
+    const inscricoes = eventos.filter((evento) =>
+        inscricoesIds.includes(evento.id)
+    );
 
     console.log('[render] TelaMinhasInscricoes');
 
