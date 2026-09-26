@@ -6,8 +6,19 @@ export default function TelaDetalheEvento({ eventoId }) {
     const [erro, setErro] = useState(null);
 
     useEffect(() => {
-        fetch('https://api.campus.iftm.edu.br/eventos')
-            .then((resposta) => resposta.json())
+        // Permite cancelar a busca se o usuário sair do detalhe.
+        const controlador = new AbortController();
+
+        fetch('https://api.campus.iftm.edu.br/eventos', {
+            signal: controlador.signal,
+        })
+            .then((resposta) => {
+                if (!resposta.ok) {
+                    throw new Error(`HTTP ${resposta.status}`);
+                }
+
+                return resposta.json();
+            })
             .then((eventos) => {
                 const eventoEncontrado = eventos.find(
                     (item) => String(item.id) === eventoId
@@ -16,8 +27,14 @@ export default function TelaDetalheEvento({ eventoId }) {
                 setEvento(eventoEncontrado ?? null);
             })
             .catch((e) => {
-                setErro(e.message);
+                // Cancelamento é esperado ao sair da tela, não é uma falha.
+                if (e.name !== 'AbortError') {
+                    setErro(e.message);
+                }
             });
+
+        // Cancela a requisição quando o componente é desmontado.
+        return () => controlador.abort();
     }, [eventoId]);
 
     if (erro) {

@@ -63,11 +63,16 @@ export default function TelaEventos() {
 
     // Executa a busca dos eventos uma vez, quando a tela é montada.
     useEffect(() => {
+        // Permite cancelar a requisição quando a tela for desmontada.
+        const controlador = new AbortController();
+
         // Informa ao redutor que a busca começou.
         dispatch({ type: 'CARREGANDO' });
 
         // Faz uma requisição para obter os eventos disponíveis.
-        fetch('https://api.campus.iftm.edu.br/eventos')
+        fetch('https://api.campus.iftm.edu.br/eventos', {
+            signal: controlador.signal,
+        })
             // Trata respostas HTTP que representam erro.
             .then((resposta) => {
                 if (!resposta.ok) {
@@ -83,9 +88,14 @@ export default function TelaEventos() {
             })
             // Guarda a mensagem caso a requisição falhe.
             .catch((e) => {
-                dispatch({ type: 'FALHA', erro: e.message });
+                // Cancelamento é esperado ao sair da tela, não é uma falha.
+                if (e.name !== 'AbortError') {
+                    dispatch({ type: 'FALHA', erro: e.message });
+                }
             });
-        // O array vazio faz este efeito executar apenas uma vez.
+
+        // Cancela a requisição quando o componente é desmontado.
+        return () => controlador.abort();
     }, []);
 
     // Executa esta função quando o usuário se inscreve em um evento.
