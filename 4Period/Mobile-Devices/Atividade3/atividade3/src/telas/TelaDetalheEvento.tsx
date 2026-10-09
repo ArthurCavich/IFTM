@@ -16,14 +16,12 @@ export default function TelaDetalheEvento({ eventoId }) {
                 if (!resposta.ok) {
                     throw new Error(`HTTP ${resposta.status}`);
                 }
-
                 return resposta.json();
             })
             .then((eventos) => {
                 const eventoEncontrado = eventos.find(
                     (item) => String(item.id) === eventoId
                 );
-
                 setEvento(eventoEncontrado ?? null);
             })
             .catch((e) => {

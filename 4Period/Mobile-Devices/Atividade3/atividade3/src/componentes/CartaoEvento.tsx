@@ -1,4 +1,3 @@
-src / componentes / CartaoEvento.js
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function CartaoEvento({ evento, aoInscrever, aoAbrir }) {
