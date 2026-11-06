@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ISO 8583 | Sistemas Distribuídos</title>
+    <style>
+        :root { --ink:#17202a; --muted:#667085; --primary:#2563eb; --bg:#f4f7fb; --card:#fff; --ok:#16803c; --bad:#c62828; }
+        * { box-sizing:border-box; } body { margin:0; font-family:Inter,Segoe UI,sans-serif; color:var(--ink); background:var(--bg); }
+        header { padding:28px 7%; color:white; background:linear-gradient(120deg,#102a56,#2563eb); }
+        header h1 { margin:0 0 6px; font-size:clamp(1.5rem,3vw,2.4rem); } header p { margin:0; opacity:.85; }
+        main { width:min(1120px,92%); margin:28px auto; display:grid; gap:20px; }
+        .grid { display:grid; grid-template-columns:1fr 1.4fr; gap:20px; } .panel { padding:24px; background:var(--card); border-radius:14px; box-shadow:0 5px 20px #223a5a12; }
+        h2 { margin:0 0 18px; font-size:1.15rem; } label { display:block; margin:13px 0 6px; color:var(--muted); font-size:.9rem; }
+        input,select,button { width:100%; padding:11px 12px; border:1px solid #d5dbe5; border-radius:8px; font:inherit; }
+        button { margin-top:18px; border:0; background:var(--primary); color:white; font-weight:700; cursor:pointer; } button:hover { filter:brightness(1.08); }
+        .result { min-height:46px; margin-top:15px; padding:12px; border-radius:8px; background:#f0f3f8; } .success { color:var(--ok); background:#e9f8ef; } .error { color:var(--bad); background:#fff0f0; }
+        table { width:100%; border-collapse:collapse; font-size:.9rem; } th,td { padding:10px 8px; border-bottom:1px solid #edf0f4; text-align:left; } th { color:var(--muted); font-weight:600; }
+        .badge { padding:4px 8px; border-radius:99px; font-size:.78rem; font-weight:700; } .badge.ok { color:var(--ok); background:#e5f6eb; } .badge.bad { color:var(--bad); background:#ffebeb; }
+        @media(max-width:800px) { .grid { grid-template-columns:1fr; } .panel { overflow:auto; } }
+    </style>
+</head>
+<body>
+<header><h1>Central de Transações ISO 8583</h1><p>Atividade de Sistemas Distribuídos · Java Sockets e Java NIO</p></header>
+<main>
+    <section class="grid">
+        <div class="panel">
+            <h2>Nova transação</h2>
+            <form id="form">
+                <label for="card">Cartão</label><select id="card" required></select>
+                <label for="amount">Valor (R$)</label><input id="amount" type="number" min=".01" step=".01" placeholder="100.00" required>
+                <label for="server">Servidor</label><select id="server"><option value="multithread">Socket Multithread</option><option value="nio">Java NIO (Selector)</option></select>
+                <button>Autorizar transação</button>
+            </form><div id="result" class="result">Preencha os dados e envie uma transação.</div>
+        </div>
+        <div class="panel"><h2>Cartões em memória</h2><table><thead><tr><th>Cartão</th><th>Cliente</th><th>Saldo</th></tr></thead><tbody id="cards"></tbody></table></div>
+    </section>
+    <section class="panel"><h2>Histórico de transações</h2><table><thead><tr><th>NSU</th><th>Cartão</th><th>Valor</th><th>Rede</th><th>Código</th><th>Situação</th></tr></thead><tbody id="transactions"></tbody></table></section>
+</main>
+<script>
+const money = v => Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+async function load() {
+  const cards = await fetch('/api/cards').then(r=>r.json());
+  document.querySelector('#card').innerHTML = cards.map(c=>`<option value="${c.number}">${c.number} · ${c.customerName}</option>`).join('');
+  document.querySelector('#cards').innerHTML = cards.map(c=>`<tr><td>${c.number}</td><td>${c.customerName}</td><td>${money(c.balance)}</td></tr>`).join('');
+  const tx = await fetch('/api/transactions').then(r=>r.json());
+  document.querySelector('#transactions').innerHTML = tx.map(t=>`<tr><td>${t.nsu}</td><td>${t.cardNumber}</td><td>${money(t.amount)}</td><td>${t.network}</td><td><span class="badge ${t.responseCode==='00'?'ok':'bad'}">${t.responseCode}</span></td><td>${t.responseCode==='00'?'Aprovada':'Recusada'}</td></tr>`).join('');
+}
+document.querySelector('#form').addEventListener('submit', async e => {
+  e.preventDefault(); const result = document.querySelector('#result');
+  const body = {cardNumber:document.querySelector('#card').value, amount:document.querySelector('#amount').value, server:document.querySelector('#server').value};
+  const response = await fetch('/api/transactions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const data = await response.json(); result.className = 'result ' + (data.responseCode==='00'?'success':'error');
+  result.textContent = `${data.message} · Código ${data.responseCode} · NSU ${data.nsu}` + (data.balance?` · Saldo: ${money(data.balance)}`:''); load();
+});
+load();
+</script>
+</body>
+</html>

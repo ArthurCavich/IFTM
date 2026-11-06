@@ -1,0 +1,32 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: mysql-aula
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: "aula"
+    ports:
+      - "12000:3306"
+
+  mongo:
+    image: mongo:8
+    container_name: mongo-aula
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: "123456"
+      MONGO_INITDB_DATABASE: "aula"
+    ports:
+      - "12001:27017"
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: mongo-express-aula
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:123456@mongo:27017/
+      ME_CONFIG_BASICAUTH_ENABLED: "true"
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - mongo
