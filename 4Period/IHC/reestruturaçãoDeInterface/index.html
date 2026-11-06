@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulte o acervo das bibliotecas do IFTM.">
+  <title>Consulta ao acervo | Biblioteca IFTM</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header id="inicio" class="site-header">
+    <div class="header-content">
+      <div class="brand" aria-label="Biblioteca IFTM">
+        <span><strong>Biblioteca</strong><small>Consulta ao acervo</small></span>
+      </div>
+      <span class="header-title header-title-direita" aria-label="Instituto Federal do Triângulo Mineiro">IFTM</span>
+    </div>
+  </header>
+
+  <main id="conteudo" class="main-content">
+    <section class="hero" aria-label="Apresentação do sistema de bibliotecas IFTM">
+      <div class="hero-image">
+        <img src="assets/bibliotecaIFTM.png" alt="Ilustração de uma biblioteca com estantes de livros">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Sistema de bibliotecas</p>
+        <p>Consulte o acervo das bibliotecas do Instituto Federal do Triângulo Mineiro. <br>Pesquise livros e autores de forma rápida e simples.</p>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-labelledby="page-title">
+      <div class="catalog-header">
+        <a class="help-link" href="#ajuda">Como pesquisar?</a>
+      </div>
+      <h2 id="page-title">O que você quer encontrar?</h2>
+      <p class="intro">
+        Pesquise por título, autor ou
+        <span class="isbn-ajuda">
+          ISBN
+          <button class="botao-informacao" type="button" aria-label="O que é ISBN?" aria-describedby="explicacao-isbn">i</button>
+          <span id="explicacao-isbn" class="explicacao-isbn" role="tooltip">ISBN é o código numérico usado para identificar um livro.</span>
+        </span>.
+      </p>
+
+      <form id="formulario-busca" action="#resultados" method="get">
+        <div class="search-row">
+          <label class="sr-only" for="tipo">Tipo de busca</label>
+          <select id="tipo" name="tipo">
+            <option value="todos">Todos os campos</option>
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="isbn">ISBN</option>
+          </select>
+
+          <label class="sr-only" for="consulta">Termo de busca</label>
+          <input id="consulta" name="consulta" type="search"
+            placeholder="Digite título, autor ou ISBN..." aria-describedby="busca-ajuda">
+
+          <button class="button" type="submit">Buscar</button>
+          <button id="botao-limpar" class="button button-limpar" type="button">Limpar</button>
+        </div>
+        <small id="busca-ajuda" class="field-help">Exemplo: introdução à programação, Machado de Assis ou 9788535902778.</small>
+        <small id="erro-busca" class="field-error" role="alert" hidden></small>
+      </form>
+    </section>
+
+    <section id="resultados" class="resultados-modal" aria-labelledby="titulo-resultados" aria-live="polite">
+      <div class="resultados-backdrop"></div>
+      <div class="resultados-card">
+        <button id="fechar-resultados" class="resultados-fechar" type="button" aria-label="Fechar resultados">×</button>
+        <div id="carregando-resultados" class="carregando-resultados" role="status">
+          <span class="indicador-carregamento" aria-hidden="true"></span>
+          <h2>Buscando no acervo...</h2>
+          <p>Estamos procurando o que você pediu.</p>
+        </div>
+        <div id="conteudo-resultados" class="conteudo-resultados">
+          <div class="results-header">
+            <h2 id="titulo-resultados">Resultados da busca</h2>
+            <span id="quantidade-resultados">Aguardando pesquisa</span>
+          </div>
+          <div id="mensagem-resultados" class="empty-state" hidden>
+            <span class="empty-icon" aria-hidden="true">⌕</span>
+            <p>Digite um termo e clique em <strong>Buscar</strong> para consultar o acervo.</p>
+          </div>
+          <div id="lista-livros" class="book-list"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="ajuda" class="modal" role="dialog" aria-modal="true" aria-labelledby="ajuda-titulo">
+    <a class="modal-backdrop" href="#" aria-label="Fechar janela"></a>
+    <section class="modal-card">
+      <a class="modal-close" href="#" aria-label="Fechar janela">×</a>
+      <h2 id="ajuda-titulo">Como pesquisar</h2>
+      <p>Escolha <strong>uma opção</strong> no menu e digite <strong>uma palavra</strong> ou <strong>expressão</strong> no campo de busca.</p>
+      <ul>
+        <li><span class="icone-opcao" aria-hidden="true">▣</span><span>Use o <strong>título</strong> para procurar uma obra específica.</span></li>
+        <li><span class="icone-opcao" aria-hidden="true">♙</span><span>Use o <strong>autor</strong> para encontrar as obras de uma pessoa.</span></li>
+        <li><span class="icone-opcao" aria-hidden="true">▤</span><span>Use o <strong>ISBN</strong> informando somente números, sem pontos ou hífens.</span></li>
+        <li><span class="icone-opcao" aria-hidden="true">⌕</span><span>Se não encontrar, tente menos palavras ou abra a pesquisa avançada.</span></li>
+      </ul>
+      <a class="modal-action" href="#">Entendi</a>
+    </section>
+  </div>
+
+  <div id="confirmacao-limpeza" class="modal confirmacao" role="dialog" aria-modal="true" aria-labelledby="confirmacao-titulo" aria-describedby="confirmacao-texto">
+    <div class="modal-backdrop"></div>
+    <section class="modal-card confirmacao-card">
+      <h2 id="confirmacao-titulo">Limpar pesquisa?</h2>
+      <p id="confirmacao-texto">Deseja limpar os campos preenchidos?</p>
+      <div class="confirmacao-acoes">
+        <button id="confirmar-limpeza" class="button button-limpar" type="button">Confirmar</button>
+        <button id="cancelar-limpeza" class="button" type="button">Cancelar</button>
+      </div>
+    </section>
+  </div>
+
+  <a id="botao-topo" class="botao-topo" href="#inicio" aria-label="Voltar ao topo">↑</a>
+  <script src="js/script.js"></script>
+</body>
+</html>
